@@ -27,13 +27,12 @@ describe("the example from Uplane's decision-layer post", () => {
 
   it("projects to the facts the rules need", () => {
     expect(jevState(blogExample())).toEqual({
-      tariffVisitsLast7Days: "3 or more times",
-      coveragePageLast7Days: "not visited",
+      renewalInterest: "present",
+      coverageInterest: "yes",
       contractRenews: "in 14 to 59 days",
       lastUpgradeOffer: "ignored",
       supportTicket: "none open",
       faultReportedLast7Days: "no",
-      fiveGAtAddress: "live",
     });
   });
 });
@@ -102,9 +101,9 @@ describe("generated customers", () => {
     for (const { raw } of cases) {
       const s = signals(raw);
       const state = jevState(raw);
-      const visits = s.tariffVisits === 0 ? "none" : s.tariffVisits === 1 ? "once" : s.tariffVisits === 2 ? "twice" : "3 or more times";
       const renews = s.daysToRenewal < 14 ? "in less than 14 days" : s.daysToRenewal < 60 ? "in 14 to 59 days" : "in 60 days or more";
-      expect(state.tariffVisitsLast7Days).toBe(visits);
+      expect(state.renewalInterest).toBe(s.tariffVisits < 2 && s.daysToRenewal >= 60 ? "low" : "present");
+      expect(state.coverageInterest).toBe(s.fiveG || s.coverageVisited ? "yes" : "no");
       expect(state.contractRenews).toBe(renews);
       expect(state.lastUpgradeOffer).toBe(s.lastOffer === "none" ? "none sent" : s.lastOffer);
       expect(state.supportTicket).toBe(s.openTicket ? "open" : "none open");

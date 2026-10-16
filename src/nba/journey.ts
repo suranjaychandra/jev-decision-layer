@@ -109,16 +109,21 @@ export function allowedActions(c: RawCustomer): Action[] {
  * text, so any difference in their answers comes from the state format alone.
  * Why "apply the FIRST rule that matches": an ordered list gives exactly one correct answer per
  * customer, which makes grading objective.
+ * Why named definitions ("renewal interest", "coverage interest"): on the dev set, Jev often matched
+ * only half of a rule with two conditions joined by "and"/"or". Naming each combined condition once,
+ * like a business segment, keeps every rule to single facts. The policy itself is unchanged.
  */
 export const INSTRUCTIONS = `You are the decision layer for a mobile network operator's contract-renewal journey. Choose the next action for this customer.
 Every listed option is already permitted by consent and contact limits. Only choose a listed option.
 Definitions:
 - A tariff visit is an opening of the tariff comparison page in the last 7 days.
 - A fault is recent if it was reported in the last 7 days.
-Apply the FIRST rule that matches:
+- Renewal interest is low when there were fewer than 2 tariff visits and the contract renews in 60 days or more. Otherwise it is present.
+- Coverage interest is yes when 5G is live at the address or the coverage page was visited in the last 7 days.
+The rules are in priority order. Apply the FIRST rule that matches and ignore all later rules:
 1. service_handoff: a support ticket is open, or a fault is recent.
-2. wait: fewer than 2 tariff visits, and the contract renews in 60 days or more.
-3. social_coverage_proof: if listed, the last upgrade offer was ignored, and 5G is live at the address or the coverage page was visited in the last 7 days.
+2. wait: renewal interest is low.
+3. social_coverage_proof: if listed, the last upgrade offer was ignored and coverage interest is yes.
 4. email_upgrade_offer: if listed.
 5. sms_reminder: if listed, and the contract renews in less than 14 days.
 6. social_coverage_proof: if listed.

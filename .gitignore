@@ -5,3 +5,4 @@ coverage/
 !.env.example
 .DS_Store
 *.log
+results/last-run.json

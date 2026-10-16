@@ -2,7 +2,7 @@
  * What Jev receives: the jev-state version of a customer and the choice question.
  * This is the only part that changes between the raw and jev-state variants.
  */
-import { type Pick, band, count, pick, pipe, project } from "jev-state";
+import { type Pick, band, pick, pipe, project } from "jev-state";
 import { ACTIONS, type Action, COVERAGE_PAGE, DAY, type RawCustomer, INSTRUCTIONS, TARIFF_PAGE, WEEK, allowedActions } from "./journey.js";
 
 /**
@@ -22,24 +22,26 @@ export const MIN_CONFIDENCE = 0.6;
 export function jevState(c: RawCustomer) {
   const inLastWeek = (at: number) => c.now - at < WEEK;
   const offers = c.sendLog.filter((s) => s.campaign === "upgrade_offer").sort((a, b) => b.sentAt - a.sentAt);
+  // The facts behind the rules' definitions, computed once in code.
+  const tariffVisits = c.events.filter((e) => e.path === TARIFF_PAGE && inLastWeek(e.at)).length;
+  const coverageVisited = c.events.some((e) => e.path === COVERAGE_PAGE && inLastWeek(e.at));
+  const daysToRenewal = (c.contract.renewsAt - c.now) / DAY;
   return project(
     c,
     {
-      // Count tariff-page visits inside the 7-day window, then turn the number into words.
-      tariffVisitsLast7Days: pipe(
-        () => c.events.filter((e) => e.path === TARIFF_PAGE && inLastWeek(e.at)),
-        count({ few: 2, many: 3, labels: { none: "none", one: "once", few: "twice", many: "3 or more times" } }),
-      ),
-      coveragePageLast7Days: () => (c.events.some((e) => e.path === COVERAGE_PAGE && inLastWeek(e.at)) ? "visited" : "not visited"),
-      // Days until renewal, as one of the three ranges the rules mention (14 and 60 days).
+      // The rules' "renewal interest": fewer than 2 tariff visits in 7 days and renewal 60+ days away
+      // means low. Computed here because counting in a window and date math are where Jev slips.
+      renewalInterest: () => (tariffVisits < 2 && daysToRenewal >= 60 ? "low" : "present"),
+      // The rules' "coverage interest": 5G live at the address, or a coverage-page visit in 7 days.
+      coverageInterest: () => (c.network.fiveGLiveAtAddress || coverageVisited ? "yes" : "no"),
+      // Days until renewal as words; only the 14-day line still matters once interest is computed.
       contractRenews: pipe(
-        () => (c.contract.renewsAt - c.now) / DAY,
+        () => daysToRenewal,
         band({ cuts: [14, 60], labels: ["in less than 14 days", "in 14 to 59 days", "in 60 days or more"] }),
       ),
       lastUpgradeOffer: () => (offers.length === 0 ? "none sent" : offers[0]!.opened ? "opened" : "ignored"),
       supportTicket: () => (c.tickets.some((t) => t.status === "open") ? "open" : "none open"),
       faultReportedLast7Days: () => (c.tickets.some((t) => t.topic === "network_fault" && inLastWeek(t.openedAt)) ? "yes" : "no"),
-      fiveGAtAddress: () => (c.network.fiveGLiveAtAddress ? "live" : "not live"),
     },
     // Drop every raw field the schema doesn't name: ids, device, tracking, and the raw logs.
     { unknown: "drop" },
