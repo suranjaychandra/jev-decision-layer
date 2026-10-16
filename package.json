@@ -1,0 +1,27 @@
+{
+  "name": "jev-decision-layer",
+  "version": "0.0.0",
+  "private": true,
+  "description": "A marketing decision layer built with Jev and jev-state: next best action and budget steering, with a raw vs jev-state benchmark.",
+  "license": "MIT",
+  "author": "Suranjay Kumar",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "nba": "node --env-file-if-exists=.env --import tsx src/nba/run.ts"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@typesafe-ai/sdk": "^0.6.0",
+    "jev-state": "^0.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  }
+}
