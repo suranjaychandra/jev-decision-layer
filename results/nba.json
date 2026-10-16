@@ -1,0 +1,3649 @@
+{
+  "date": "2026-10-16",
+  "model": "jev-1.13.0",
+  "seed": 42,
+  "perAction": 12,
+  "reruns": 3,
+  "summary": {
+    "raw": {
+      "calls": 180,
+      "errors": 0,
+      "accuracy": 0.8055555555555556,
+      "humanReviewRate": 0.45,
+      "wrongExecuted": 12,
+      "executedAccuracy": 0.8787878787878788,
+      "unstableCustomers": 5,
+      "avgInputTokens": 1597.4833333333333,
+      "p50LatencyMs": 310.21216600000025,
+      "p95LatencyMs": 390.25816699999996,
+      "perAction": {
+        "social_coverage_proof": 0.9444444444444444,
+        "wait": 0.25,
+        "email_upgrade_offer": 1,
+        "service_handoff": 1,
+        "sms_reminder": 0.8333333333333334
+      }
+    },
+    "jev-state": {
+      "calls": 180,
+      "errors": 0,
+      "accuracy": 0.9555555555555556,
+      "humanReviewRate": 0.19444444444444445,
+      "wrongExecuted": 3,
+      "executedAccuracy": 0.9793103448275862,
+      "unstableCustomers": 1,
+      "avgInputTokens": 703.35,
+      "p50LatencyMs": 304.57083299999977,
+      "p95LatencyMs": 368.426958,
+      "perAction": {
+        "social_coverage_proof": 0.9166666666666666,
+        "wait": 1,
+        "email_upgrade_offer": 0.8611111111111112,
+        "service_handoff": 1,
+        "sms_reminder": 1
+      }
+    }
+  },
+  "results": [
+    {
+      "customer": "cus_0001",
+      "variant": "raw",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.67,
+      "inputTokens": 1625,
+      "latencyMs": 363.833333
+    },
+    {
+      "customer": "cus_0001",
+      "variant": "raw",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.7,
+      "inputTokens": 1625,
+      "latencyMs": 340.96029100000004
+    },
+    {
+      "customer": "cus_0001",
+      "variant": "raw",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.67,
+      "inputTokens": 1625,
+      "latencyMs": 358.543875
+    },
+    {
+      "customer": "cus_0001",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.52,
+      "inputTokens": 694,
+      "latencyMs": 360.287542
+    },
+    {
+      "customer": "cus_0001",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.61,
+      "inputTokens": 694,
+      "latencyMs": 334.55308299999996
+    },
+    {
+      "customer": "cus_0001",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.55,
+      "inputTokens": 694,
+      "latencyMs": 351.31491700000004
+    },
+    {
+      "customer": "cus_0002",
+      "variant": "raw",
+      "run": 0,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 0.62,
+      "inputTokens": 1252,
+      "latencyMs": 338.112334
+    },
+    {
+      "customer": "cus_0002",
+      "variant": "raw",
+      "run": 1,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 0.59,
+      "inputTokens": 1252,
+      "latencyMs": 341.281459
+    },
+    {
+      "customer": "cus_0002",
+      "variant": "raw",
+      "run": 2,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 0.66,
+      "inputTokens": 1252,
+      "latencyMs": 328.04329199999995
+    },
+    {
+      "customer": "cus_0002",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 692,
+      "latencyMs": 286.00729199999995
+    },
+    {
+      "customer": "cus_0002",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 692,
+      "latencyMs": 288.64904099999995
+    },
+    {
+      "customer": "cus_0002",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 692,
+      "latencyMs": 324.17895799999997
+    },
+    {
+      "customer": "cus_0003",
+      "variant": "raw",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.85,
+      "inputTokens": 1892,
+      "latencyMs": 410.953292
+    },
+    {
+      "customer": "cus_0003",
+      "variant": "raw",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.88,
+      "inputTokens": 1892,
+      "latencyMs": 294.338708
+    },
+    {
+      "customer": "cus_0003",
+      "variant": "raw",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.88,
+      "inputTokens": 1892,
+      "latencyMs": 403.63325
+    },
+    {
+      "customer": "cus_0003",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.55,
+      "inputTokens": 714,
+      "latencyMs": 403.228167
+    },
+    {
+      "customer": "cus_0003",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.52,
+      "inputTokens": 714,
+      "latencyMs": 284.8335000000001
+    },
+    {
+      "customer": "cus_0003",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.45,
+      "inputTokens": 714,
+      "latencyMs": 295.260167
+    },
+    {
+      "customer": "cus_0004",
+      "variant": "raw",
+      "run": 0,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.18,
+      "inputTokens": 1294,
+      "latencyMs": 325.86579200000006
+    },
+    {
+      "customer": "cus_0004",
+      "variant": "raw",
+      "run": 1,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 0.18,
+      "inputTokens": 1294,
+      "latencyMs": 288.61875
+    },
+    {
+      "customer": "cus_0004",
+      "variant": "raw",
+      "run": 2,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 0.22,
+      "inputTokens": 1294,
+      "latencyMs": 402.05166599999995
+    },
+    {
+      "customer": "cus_0004",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 731,
+      "latencyMs": 281.50912500000004
+    },
+    {
+      "customer": "cus_0004",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 731,
+      "latencyMs": 306.62633300000005
+    },
+    {
+      "customer": "cus_0004",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 731,
+      "latencyMs": 301.481458
+    },
+    {
+      "customer": "cus_0005",
+      "variant": "raw",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.61,
+      "inputTokens": 1665,
+      "latencyMs": 375.4028749999999
+    },
+    {
+      "customer": "cus_0005",
+      "variant": "raw",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.55,
+      "inputTokens": 1665,
+      "latencyMs": 361.8750420000001
+    },
+    {
+      "customer": "cus_0005",
+      "variant": "raw",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.61,
+      "inputTokens": 1665,
+      "latencyMs": 335.13775
+    },
+    {
+      "customer": "cus_0005",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.69,
+      "inputTokens": 731,
+      "latencyMs": 316.8593330000001
+    },
+    {
+      "customer": "cus_0005",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.65,
+      "inputTokens": 731,
+      "latencyMs": 309.021667
+    },
+    {
+      "customer": "cus_0005",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.71,
+      "inputTokens": 731,
+      "latencyMs": 275.46174999999994
+    },
+    {
+      "customer": "cus_0006",
+      "variant": "raw",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.64,
+      "inputTokens": 1354,
+      "latencyMs": 304.60458399999993
+    },
+    {
+      "customer": "cus_0006",
+      "variant": "raw",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.64,
+      "inputTokens": 1354,
+      "latencyMs": 286.564625
+    },
+    {
+      "customer": "cus_0006",
+      "variant": "raw",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.58,
+      "inputTokens": 1354,
+      "latencyMs": 315.951583
+    },
+    {
+      "customer": "cus_0006",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.73,
+      "inputTokens": 695,
+      "latencyMs": 312.40325000000007
+    },
+    {
+      "customer": "cus_0006",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.7,
+      "inputTokens": 695,
+      "latencyMs": 340.520084
+    },
+    {
+      "customer": "cus_0006",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.61,
+      "inputTokens": 695,
+      "latencyMs": 312.4078750000001
+    },
+    {
+      "customer": "cus_0007",
+      "variant": "raw",
+      "run": 0,
+      "expected": "wait",
+      "got": "social_coverage_proof",
+      "confidence": 0.61,
+      "inputTokens": 1712,
+      "latencyMs": 303.2377080000001
+    },
+    {
+      "customer": "cus_0007",
+      "variant": "raw",
+      "run": 1,
+      "expected": "wait",
+      "got": "social_coverage_proof",
+      "confidence": 0.68,
+      "inputTokens": 1712,
+      "latencyMs": 471.777417
+    },
+    {
+      "customer": "cus_0007",
+      "variant": "raw",
+      "run": 2,
+      "expected": "wait",
+      "got": "social_coverage_proof",
+      "confidence": 0.61,
+      "inputTokens": 1712,
+      "latencyMs": 331.3515
+    },
+    {
+      "customer": "cus_0007",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 0.99,
+      "inputTokens": 731,
+      "latencyMs": 288.04983300000004
+    },
+    {
+      "customer": "cus_0007",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 0.99,
+      "inputTokens": 731,
+      "latencyMs": 299.177958
+    },
+    {
+      "customer": "cus_0007",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 0.99,
+      "inputTokens": 731,
+      "latencyMs": 271.0240829999998
+    },
+    {
+      "customer": "cus_0008",
+      "variant": "raw",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.91,
+      "inputTokens": 1746,
+      "latencyMs": 316.047
+    },
+    {
+      "customer": "cus_0008",
+      "variant": "raw",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.89,
+      "inputTokens": 1746,
+      "latencyMs": 281.89774999999986
+    },
+    {
+      "customer": "cus_0008",
+      "variant": "raw",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.91,
+      "inputTokens": 1746,
+      "latencyMs": 285.48254199999997
+    },
+    {
+      "customer": "cus_0008",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.33,
+      "inputTokens": 677,
+      "latencyMs": 289.734334
+    },
+    {
+      "customer": "cus_0008",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.38,
+      "inputTokens": 677,
+      "latencyMs": 272.396166
+    },
+    {
+      "customer": "cus_0008",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.41,
+      "inputTokens": 677,
+      "latencyMs": 306.35241599999995
+    },
+    {
+      "customer": "cus_0009",
+      "variant": "raw",
+      "run": 0,
+      "expected": "wait",
+      "got": "social_coverage_proof",
+      "confidence": 0.23,
+      "inputTokens": 1248,
+      "latencyMs": 300.34804199999985
+    },
+    {
+      "customer": "cus_0009",
+      "variant": "raw",
+      "run": 1,
+      "expected": "wait",
+      "got": "social_coverage_proof",
+      "confidence": 0.27,
+      "inputTokens": 1248,
+      "latencyMs": 312.3007910000001
+    },
+    {
+      "customer": "cus_0009",
+      "variant": "raw",
+      "run": 2,
+      "expected": "wait",
+      "got": "social_coverage_proof",
+      "confidence": 0.29,
+      "inputTokens": 1248,
+      "latencyMs": 275.1984580000001
+    },
+    {
+      "customer": "cus_0009",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 0.99,
+      "inputTokens": 713,
+      "latencyMs": 301.78704199999993
+    },
+    {
+      "customer": "cus_0009",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 0.99,
+      "inputTokens": 713,
+      "latencyMs": 404.930208
+    },
+    {
+      "customer": "cus_0009",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 0.99,
+      "inputTokens": 713,
+      "latencyMs": 290.3197090000001
+    },
+    {
+      "customer": "cus_0010",
+      "variant": "raw",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.32,
+      "inputTokens": 1458,
+      "latencyMs": 375.3302920000001
+    },
+    {
+      "customer": "cus_0010",
+      "variant": "raw",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.31,
+      "inputTokens": 1458,
+      "latencyMs": 282.6037500000002
+    },
+    {
+      "customer": "cus_0010",
+      "variant": "raw",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.25,
+      "inputTokens": 1458,
+      "latencyMs": 312.8428329999997
+    },
+    {
+      "customer": "cus_0010",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.91,
+      "inputTokens": 713,
+      "latencyMs": 319.7020000000002
+    },
+    {
+      "customer": "cus_0010",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.91,
+      "inputTokens": 713,
+      "latencyMs": 303.602042
+    },
+    {
+      "customer": "cus_0010",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.88,
+      "inputTokens": 713,
+      "latencyMs": 284.15954200000033
+    },
+    {
+      "customer": "cus_0011",
+      "variant": "raw",
+      "run": 0,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.8,
+      "inputTokens": 1665,
+      "latencyMs": 432.12116700000024
+    },
+    {
+      "customer": "cus_0011",
+      "variant": "raw",
+      "run": 1,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.86,
+      "inputTokens": 1665,
+      "latencyMs": 327.1174579999997
+    },
+    {
+      "customer": "cus_0011",
+      "variant": "raw",
+      "run": 2,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.83,
+      "inputTokens": 1665,
+      "latencyMs": 525.1176249999999
+    },
+    {
+      "customer": "cus_0011",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 676,
+      "latencyMs": 313.2756250000002
+    },
+    {
+      "customer": "cus_0011",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 676,
+      "latencyMs": 376.8539169999999
+    },
+    {
+      "customer": "cus_0011",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 676,
+      "latencyMs": 357.3348339999998
+    },
+    {
+      "customer": "cus_0012",
+      "variant": "raw",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.4,
+      "inputTokens": 1442,
+      "latencyMs": 357.395
+    },
+    {
+      "customer": "cus_0012",
+      "variant": "raw",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.3,
+      "inputTokens": 1442,
+      "latencyMs": 349.940333
+    },
+    {
+      "customer": "cus_0012",
+      "variant": "raw",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.37,
+      "inputTokens": 1442,
+      "latencyMs": 303.44112499999983
+    },
+    {
+      "customer": "cus_0012",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "sms_reminder",
+      "confidence": 0.77,
+      "inputTokens": 732,
+      "latencyMs": 332.53274999999985
+    },
+    {
+      "customer": "cus_0012",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "sms_reminder",
+      "confidence": 0.76,
+      "inputTokens": 732,
+      "latencyMs": 305.61204199999975
+    },
+    {
+      "customer": "cus_0012",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "sms_reminder",
+      "confidence": 0.73,
+      "inputTokens": 732,
+      "latencyMs": 421.4780420000002
+    },
+    {
+      "customer": "cus_0013",
+      "variant": "raw",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.8,
+      "inputTokens": 1691,
+      "latencyMs": 302.9365419999999
+    },
+    {
+      "customer": "cus_0013",
+      "variant": "raw",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.76,
+      "inputTokens": 1691,
+      "latencyMs": 311.51583299999993
+    },
+    {
+      "customer": "cus_0013",
+      "variant": "raw",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.77,
+      "inputTokens": 1691,
+      "latencyMs": 311.88687500000015
+    },
+    {
+      "customer": "cus_0013",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.92,
+      "inputTokens": 678,
+      "latencyMs": 324.54441700000007
+    },
+    {
+      "customer": "cus_0013",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.94,
+      "inputTokens": 678,
+      "latencyMs": 306.43379200000027
+    },
+    {
+      "customer": "cus_0013",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.92,
+      "inputTokens": 678,
+      "latencyMs": 376.22866699999986
+    },
+    {
+      "customer": "cus_0014",
+      "variant": "raw",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.59,
+      "inputTokens": 1211,
+      "latencyMs": 351.2476670000001
+    },
+    {
+      "customer": "cus_0014",
+      "variant": "raw",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.56,
+      "inputTokens": 1211,
+      "latencyMs": 327.05258300000014
+    },
+    {
+      "customer": "cus_0014",
+      "variant": "raw",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.65,
+      "inputTokens": 1211,
+      "latencyMs": 302.2631250000004
+    },
+    {
+      "customer": "cus_0014",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.55,
+      "inputTokens": 734,
+      "latencyMs": 303.5438330000002
+    },
+    {
+      "customer": "cus_0014",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.46,
+      "inputTokens": 734,
+      "latencyMs": 302.6321670000002
+    },
+    {
+      "customer": "cus_0014",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.51,
+      "inputTokens": 734,
+      "latencyMs": 298.14604099999997
+    },
+    {
+      "customer": "cus_0015",
+      "variant": "raw",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.76,
+      "inputTokens": 1435,
+      "latencyMs": 320.77225
+    },
+    {
+      "customer": "cus_0015",
+      "variant": "raw",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.77,
+      "inputTokens": 1435,
+      "latencyMs": 301.6469159999997
+    },
+    {
+      "customer": "cus_0015",
+      "variant": "raw",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.8,
+      "inputTokens": 1435,
+      "latencyMs": 343.1864169999999
+    },
+    {
+      "customer": "cus_0015",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.82,
+      "inputTokens": 679,
+      "latencyMs": 298.8690410000004
+    },
+    {
+      "customer": "cus_0015",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.83,
+      "inputTokens": 679,
+      "latencyMs": 321.3767909999997
+    },
+    {
+      "customer": "cus_0015",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.77,
+      "inputTokens": 679,
+      "latencyMs": 293.6158340000002
+    },
+    {
+      "customer": "cus_0016",
+      "variant": "raw",
+      "run": 0,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 0.46,
+      "inputTokens": 1230,
+      "latencyMs": 313.78904200000034
+    },
+    {
+      "customer": "cus_0016",
+      "variant": "raw",
+      "run": 1,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 0.55,
+      "inputTokens": 1230,
+      "latencyMs": 336.7084169999998
+    },
+    {
+      "customer": "cus_0016",
+      "variant": "raw",
+      "run": 2,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 0.55,
+      "inputTokens": 1230,
+      "latencyMs": 305.7531250000002
+    },
+    {
+      "customer": "cus_0016",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 678,
+      "latencyMs": 298.4092910000004
+    },
+    {
+      "customer": "cus_0016",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 678,
+      "latencyMs": 296.66137500000013
+    },
+    {
+      "customer": "cus_0016",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 678,
+      "latencyMs": 275.0980840000002
+    },
+    {
+      "customer": "cus_0017",
+      "variant": "raw",
+      "run": 0,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.53,
+      "inputTokens": 1384,
+      "latencyMs": 347.4255000000003
+    },
+    {
+      "customer": "cus_0017",
+      "variant": "raw",
+      "run": 1,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.55,
+      "inputTokens": 1384,
+      "latencyMs": 292.5427499999996
+    },
+    {
+      "customer": "cus_0017",
+      "variant": "raw",
+      "run": 2,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.65,
+      "inputTokens": 1384,
+      "latencyMs": 414.60170800000014
+    },
+    {
+      "customer": "cus_0017",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 712,
+      "latencyMs": 305.9407080000001
+    },
+    {
+      "customer": "cus_0017",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 712,
+      "latencyMs": 305.073042
+    },
+    {
+      "customer": "cus_0017",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 712,
+      "latencyMs": 304.16416700000036
+    },
+    {
+      "customer": "cus_0018",
+      "variant": "raw",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.84,
+      "inputTokens": 1555,
+      "latencyMs": 409.2826670000004
+    },
+    {
+      "customer": "cus_0018",
+      "variant": "raw",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.91,
+      "inputTokens": 1555,
+      "latencyMs": 383.86966699999994
+    },
+    {
+      "customer": "cus_0018",
+      "variant": "raw",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.85,
+      "inputTokens": 1555,
+      "latencyMs": 342.50816699999996
+    },
+    {
+      "customer": "cus_0018",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.57,
+      "inputTokens": 734,
+      "latencyMs": 315.991
+    },
+    {
+      "customer": "cus_0018",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.44,
+      "inputTokens": 734,
+      "latencyMs": 303.1008750000001
+    },
+    {
+      "customer": "cus_0018",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.5,
+      "inputTokens": 734,
+      "latencyMs": 296.72941700000047
+    },
+    {
+      "customer": "cus_0019",
+      "variant": "raw",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.85,
+      "inputTokens": 1982,
+      "latencyMs": 305.6651670000001
+    },
+    {
+      "customer": "cus_0019",
+      "variant": "raw",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.88,
+      "inputTokens": 1982,
+      "latencyMs": 305.9416249999995
+    },
+    {
+      "customer": "cus_0019",
+      "variant": "raw",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.83,
+      "inputTokens": 1982,
+      "latencyMs": 328.5199999999995
+    },
+    {
+      "customer": "cus_0019",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.41,
+      "inputTokens": 711,
+      "latencyMs": 312.4479999999994
+    },
+    {
+      "customer": "cus_0019",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.43,
+      "inputTokens": 711,
+      "latencyMs": 313.70158399999946
+    },
+    {
+      "customer": "cus_0019",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.48,
+      "inputTokens": 711,
+      "latencyMs": 285.0417499999994
+    },
+    {
+      "customer": "cus_0020",
+      "variant": "raw",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.47,
+      "inputTokens": 1813,
+      "latencyMs": 298.62245900000016
+    },
+    {
+      "customer": "cus_0020",
+      "variant": "raw",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.52,
+      "inputTokens": 1813,
+      "latencyMs": 436.66354200000023
+    },
+    {
+      "customer": "cus_0020",
+      "variant": "raw",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.41,
+      "inputTokens": 1813,
+      "latencyMs": 312.0043340000002
+    },
+    {
+      "customer": "cus_0020",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.73,
+      "inputTokens": 711,
+      "latencyMs": 359.6849999999995
+    },
+    {
+      "customer": "cus_0020",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.77,
+      "inputTokens": 711,
+      "latencyMs": 338.0074590000004
+    },
+    {
+      "customer": "cus_0020",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.75,
+      "inputTokens": 711,
+      "latencyMs": 287.0958329999994
+    },
+    {
+      "customer": "cus_0021",
+      "variant": "raw",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.56,
+      "inputTokens": 1690,
+      "latencyMs": 284.38724999999977
+    },
+    {
+      "customer": "cus_0021",
+      "variant": "raw",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.6,
+      "inputTokens": 1690,
+      "latencyMs": 303.1800830000002
+    },
+    {
+      "customer": "cus_0021",
+      "variant": "raw",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.62,
+      "inputTokens": 1690,
+      "latencyMs": 299.5636249999998
+    },
+    {
+      "customer": "cus_0021",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.26,
+      "inputTokens": 732,
+      "latencyMs": 354.95404099999996
+    },
+    {
+      "customer": "cus_0021",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.25,
+      "inputTokens": 732,
+      "latencyMs": 307.3280829999994
+    },
+    {
+      "customer": "cus_0021",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.24,
+      "inputTokens": 732,
+      "latencyMs": 285.908375
+    },
+    {
+      "customer": "cus_0022",
+      "variant": "raw",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 1667,
+      "latencyMs": 301.5583750000005
+    },
+    {
+      "customer": "cus_0022",
+      "variant": "raw",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 1667,
+      "latencyMs": 327.65908299999955
+    },
+    {
+      "customer": "cus_0022",
+      "variant": "raw",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 1667,
+      "latencyMs": 274.7278329999999
+    },
+    {
+      "customer": "cus_0022",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 693,
+      "latencyMs": 304.57083299999977
+    },
+    {
+      "customer": "cus_0022",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 693,
+      "latencyMs": 269.60383399999955
+    },
+    {
+      "customer": "cus_0022",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 693,
+      "latencyMs": 323.7271660000006
+    },
+    {
+      "customer": "cus_0023",
+      "variant": "raw",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.56,
+      "inputTokens": 1385,
+      "latencyMs": 304.40750000000025
+    },
+    {
+      "customer": "cus_0023",
+      "variant": "raw",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.52,
+      "inputTokens": 1385,
+      "latencyMs": 305.6835000000001
+    },
+    {
+      "customer": "cus_0023",
+      "variant": "raw",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.6,
+      "inputTokens": 1385,
+      "latencyMs": 309.12841599999956
+    },
+    {
+      "customer": "cus_0023",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "email_upgrade_offer",
+      "got": "wait",
+      "confidence": 0.24,
+      "inputTokens": 732,
+      "latencyMs": 308.9942920000003
+    },
+    {
+      "customer": "cus_0023",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "email_upgrade_offer",
+      "got": "wait",
+      "confidence": 0.24,
+      "inputTokens": 732,
+      "latencyMs": 279.0884160000005
+    },
+    {
+      "customer": "cus_0023",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "email_upgrade_offer",
+      "got": "email_upgrade_offer",
+      "confidence": 0.25,
+      "inputTokens": 732,
+      "latencyMs": 303.30545899999925
+    },
+    {
+      "customer": "cus_0024",
+      "variant": "raw",
+      "run": 0,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.57,
+      "inputTokens": 1408,
+      "latencyMs": 296.56875000000036
+    },
+    {
+      "customer": "cus_0024",
+      "variant": "raw",
+      "run": 1,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.68,
+      "inputTokens": 1408,
+      "latencyMs": 298.9157500000001
+    },
+    {
+      "customer": "cus_0024",
+      "variant": "raw",
+      "run": 2,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.56,
+      "inputTokens": 1408,
+      "latencyMs": 312.97266599999966
+    },
+    {
+      "customer": "cus_0024",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 711,
+      "latencyMs": 335.32679199999984
+    },
+    {
+      "customer": "cus_0024",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 711,
+      "latencyMs": 365.4555419999997
+    },
+    {
+      "customer": "cus_0024",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 711,
+      "latencyMs": 360.55475000000024
+    },
+    {
+      "customer": "cus_0025",
+      "variant": "raw",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 1532,
+      "latencyMs": 357.3699999999999
+    },
+    {
+      "customer": "cus_0025",
+      "variant": "raw",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 1532,
+      "latencyMs": 330.3894999999993
+    },
+    {
+      "customer": "cus_0025",
+      "variant": "raw",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 1532,
+      "latencyMs": 327.14687499999945
+    },
+    {
+      "customer": "cus_0025",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 675,
+      "latencyMs": 282.4817919999996
+    },
+    {
+      "customer": "cus_0025",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 675,
+      "latencyMs": 301.1145829999996
+    },
+    {
+      "customer": "cus_0025",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 675,
+      "latencyMs": 279.72149999999965
+    },
+    {
+      "customer": "cus_0026",
+      "variant": "raw",
+      "run": 0,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.56,
+      "inputTokens": 1646,
+      "latencyMs": 328.17924999999923
+    },
+    {
+      "customer": "cus_0026",
+      "variant": "raw",
+      "run": 1,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.62,
+      "inputTokens": 1646,
+      "latencyMs": 328.3942500000003
+    },
+    {
+      "customer": "cus_0026",
+      "variant": "raw",
+      "run": 2,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.59,
+      "inputTokens": 1646,
+      "latencyMs": 302.99624999999924
+    },
+    {
+      "customer": "cus_0026",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 732,
+      "latencyMs": 298.2803750000003
+    },
+    {
+      "customer": "cus_0026",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 732,
+      "latencyMs": 333.8991250000008
+    },
+    {
+      "customer": "cus_0026",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 732,
+      "latencyMs": 274.0064169999996
+    },
+    {
+      "customer": "cus_0027",
+      "variant": "raw",
+      "run": 0,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.74,
+      "inputTokens": 1554,
+      "latencyMs": 369.97708299999977
+    },
+    {
+      "customer": "cus_0027",
+      "variant": "raw",
+      "run": 1,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.74,
+      "inputTokens": 1554,
+      "latencyMs": 347.5597079999998
+    },
+    {
+      "customer": "cus_0027",
+      "variant": "raw",
+      "run": 2,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.79,
+      "inputTokens": 1554,
+      "latencyMs": 302.61479099999997
+    },
+    {
+      "customer": "cus_0027",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 676,
+      "latencyMs": 315.58883400000013
+    },
+    {
+      "customer": "cus_0027",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 676,
+      "latencyMs": 294.0823339999997
+    },
+    {
+      "customer": "cus_0027",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 676,
+      "latencyMs": 282.2584999999999
+    },
+    {
+      "customer": "cus_0028",
+      "variant": "raw",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.7,
+      "inputTokens": 1415,
+      "latencyMs": 315.04862500000036
+    },
+    {
+      "customer": "cus_0028",
+      "variant": "raw",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.7,
+      "inputTokens": 1415,
+      "latencyMs": 267.4934999999996
+    },
+    {
+      "customer": "cus_0028",
+      "variant": "raw",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.69,
+      "inputTokens": 1415,
+      "latencyMs": 300.31733299999996
+    },
+    {
+      "customer": "cus_0028",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.7,
+      "inputTokens": 695,
+      "latencyMs": 307.2398750000002
+    },
+    {
+      "customer": "cus_0028",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.74,
+      "inputTokens": 695,
+      "latencyMs": 289.8229999999994
+    },
+    {
+      "customer": "cus_0028",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.76,
+      "inputTokens": 695,
+      "latencyMs": 282.65045800000007
+    },
+    {
+      "customer": "cus_0029",
+      "variant": "raw",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.44,
+      "inputTokens": 1915,
+      "latencyMs": 320.25083299999915
+    },
+    {
+      "customer": "cus_0029",
+      "variant": "raw",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.47,
+      "inputTokens": 1915,
+      "latencyMs": 290.8952499999996
+    },
+    {
+      "customer": "cus_0029",
+      "variant": "raw",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.59,
+      "inputTokens": 1915,
+      "latencyMs": 296.9738749999997
+    },
+    {
+      "customer": "cus_0029",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.57,
+      "inputTokens": 714,
+      "latencyMs": 286.0199999999995
+    },
+    {
+      "customer": "cus_0029",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.59,
+      "inputTokens": 714,
+      "latencyMs": 312.6645419999995
+    },
+    {
+      "customer": "cus_0029",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.57,
+      "inputTokens": 714,
+      "latencyMs": 352.4049580000001
+    },
+    {
+      "customer": "cus_0031",
+      "variant": "raw",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.56,
+      "inputTokens": 1548,
+      "latencyMs": 292.5809159999999
+    },
+    {
+      "customer": "cus_0031",
+      "variant": "raw",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.51,
+      "inputTokens": 1548,
+      "latencyMs": 312.1268749999999
+    },
+    {
+      "customer": "cus_0031",
+      "variant": "raw",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.52,
+      "inputTokens": 1548,
+      "latencyMs": 310.21216600000025
+    },
+    {
+      "customer": "cus_0031",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.94,
+      "inputTokens": 677,
+      "latencyMs": 358.3080829999999
+    },
+    {
+      "customer": "cus_0031",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.94,
+      "inputTokens": 677,
+      "latencyMs": 290.1211659999999
+    },
+    {
+      "customer": "cus_0031",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.95,
+      "inputTokens": 677,
+      "latencyMs": 326.4945830000006
+    },
+    {
+      "customer": "cus_0032",
+      "variant": "raw",
+      "run": 0,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.25,
+      "inputTokens": 1209,
+      "latencyMs": 303.7970839999998
+    },
+    {
+      "customer": "cus_0032",
+      "variant": "raw",
+      "run": 1,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.27,
+      "inputTokens": 1209,
+      "latencyMs": 390.25816699999996
+    },
+    {
+      "customer": "cus_0032",
+      "variant": "raw",
+      "run": 2,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 0.23,
+      "inputTokens": 1209,
+      "latencyMs": 389.44825000000037
+    },
+    {
+      "customer": "cus_0032",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 696,
+      "latencyMs": 368.426958
+    },
+    {
+      "customer": "cus_0032",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 696,
+      "latencyMs": 351.5677079999996
+    },
+    {
+      "customer": "cus_0032",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 1,
+      "inputTokens": 696,
+      "latencyMs": 348.2945840000002
+    },
+    {
+      "customer": "cus_0033",
+      "variant": "raw",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.41,
+      "inputTokens": 1652,
+      "latencyMs": 324.38366700000006
+    },
+    {
+      "customer": "cus_0033",
+      "variant": "raw",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.37,
+      "inputTokens": 1652,
+      "latencyMs": 285.7452920000005
+    },
+    {
+      "customer": "cus_0033",
+      "variant": "raw",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.46,
+      "inputTokens": 1652,
+      "latencyMs": 310.30212499999925
+    },
+    {
+      "customer": "cus_0033",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.48,
+      "inputTokens": 693,
+      "latencyMs": 358.13054099999954
+    },
+    {
+      "customer": "cus_0033",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.35,
+      "inputTokens": 693,
+      "latencyMs": 295.5657089999995
+    },
+    {
+      "customer": "cus_0033",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.27,
+      "inputTokens": 693,
+      "latencyMs": 296.59729199999947
+    },
+    {
+      "customer": "cus_0035",
+      "variant": "raw",
+      "run": 0,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.19,
+      "inputTokens": 1349,
+      "latencyMs": 315.5484580000002
+    },
+    {
+      "customer": "cus_0035",
+      "variant": "raw",
+      "run": 1,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.2,
+      "inputTokens": 1349,
+      "latencyMs": 283.539667
+    },
+    {
+      "customer": "cus_0035",
+      "variant": "raw",
+      "run": 2,
+      "expected": "wait",
+      "got": "email_upgrade_offer",
+      "confidence": 0.3,
+      "inputTokens": 1349,
+      "latencyMs": 294.4868340000003
+    },
+    {
+      "customer": "cus_0035",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 0.97,
+      "inputTokens": 731,
+      "latencyMs": 322.210333
+    },
+    {
+      "customer": "cus_0035",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 0.97,
+      "inputTokens": 731,
+      "latencyMs": 345.64145800000006
+    },
+    {
+      "customer": "cus_0035",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "wait",
+      "got": "wait",
+      "confidence": 0.99,
+      "inputTokens": 731,
+      "latencyMs": 306.89550000000054
+    },
+    {
+      "customer": "cus_0037",
+      "variant": "raw",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.85,
+      "inputTokens": 1535,
+      "latencyMs": 316.7765420000005
+    },
+    {
+      "customer": "cus_0037",
+      "variant": "raw",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.88,
+      "inputTokens": 1535,
+      "latencyMs": 316.90625
+    },
+    {
+      "customer": "cus_0037",
+      "variant": "raw",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.88,
+      "inputTokens": 1535,
+      "latencyMs": 325.76470900000004
+    },
+    {
+      "customer": "cus_0037",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 677,
+      "latencyMs": 321.9222919999993
+    },
+    {
+      "customer": "cus_0037",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 677,
+      "latencyMs": 292.810457999999
+    },
+    {
+      "customer": "cus_0037",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 677,
+      "latencyMs": 314.17333299999973
+    },
+    {
+      "customer": "cus_0048",
+      "variant": "raw",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.76,
+      "inputTokens": 1808,
+      "latencyMs": 280.51545799999985
+    },
+    {
+      "customer": "cus_0048",
+      "variant": "raw",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.76,
+      "inputTokens": 1808,
+      "latencyMs": 322.4428339999995
+    },
+    {
+      "customer": "cus_0048",
+      "variant": "raw",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.79,
+      "inputTokens": 1808,
+      "latencyMs": 310.3850419999999
+    },
+    {
+      "customer": "cus_0048",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 693,
+      "latencyMs": 269.13537499999984
+    },
+    {
+      "customer": "cus_0048",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 693,
+      "latencyMs": 277.3472500000007
+    },
+    {
+      "customer": "cus_0048",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 693,
+      "latencyMs": 277.84350000000086
+    },
+    {
+      "customer": "cus_0050",
+      "variant": "raw",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.72,
+      "inputTokens": 1889,
+      "latencyMs": 295.8760000000002
+    },
+    {
+      "customer": "cus_0050",
+      "variant": "raw",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.71,
+      "inputTokens": 1889,
+      "latencyMs": 373.62695899999926
+    },
+    {
+      "customer": "cus_0050",
+      "variant": "raw",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.73,
+      "inputTokens": 1889,
+      "latencyMs": 284.66291600000113
+    },
+    {
+      "customer": "cus_0050",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 712,
+      "latencyMs": 284.02800000000025
+    },
+    {
+      "customer": "cus_0050",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 712,
+      "latencyMs": 310.3970420000005
+    },
+    {
+      "customer": "cus_0050",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 712,
+      "latencyMs": 289.7817090000008
+    },
+    {
+      "customer": "cus_0059",
+      "variant": "raw",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.49,
+      "inputTokens": 1283,
+      "latencyMs": 286.69704099999944
+    },
+    {
+      "customer": "cus_0059",
+      "variant": "raw",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.47,
+      "inputTokens": 1283,
+      "latencyMs": 286.4443749999991
+    },
+    {
+      "customer": "cus_0059",
+      "variant": "raw",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.52,
+      "inputTokens": 1283,
+      "latencyMs": 293.3067919999994
+    },
+    {
+      "customer": "cus_0059",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.97,
+      "inputTokens": 713,
+      "latencyMs": 313.21700000000055
+    },
+    {
+      "customer": "cus_0059",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.97,
+      "inputTokens": 713,
+      "latencyMs": 311.98312500000065
+    },
+    {
+      "customer": "cus_0059",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.99,
+      "inputTokens": 713,
+      "latencyMs": 405.53283399999964
+    },
+    {
+      "customer": "cus_0065",
+      "variant": "raw",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.72,
+      "inputTokens": 1807,
+      "latencyMs": 374.1962500000009
+    },
+    {
+      "customer": "cus_0065",
+      "variant": "raw",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.69,
+      "inputTokens": 1807,
+      "latencyMs": 373.82908300000054
+    },
+    {
+      "customer": "cus_0065",
+      "variant": "raw",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.59,
+      "inputTokens": 1807,
+      "latencyMs": 363.6921249999996
+    },
+    {
+      "customer": "cus_0065",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.28,
+      "inputTokens": 692,
+      "latencyMs": 363.46537499999977
+    },
+    {
+      "customer": "cus_0065",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.27,
+      "inputTokens": 692,
+      "latencyMs": 347.4376250000005
+    },
+    {
+      "customer": "cus_0065",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.33,
+      "inputTokens": 692,
+      "latencyMs": 307.58287500000006
+    },
+    {
+      "customer": "cus_0066",
+      "variant": "raw",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 1899,
+      "latencyMs": 294.72983300000124
+    },
+    {
+      "customer": "cus_0066",
+      "variant": "raw",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 1899,
+      "latencyMs": 332.5227500000001
+    },
+    {
+      "customer": "cus_0066",
+      "variant": "raw",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 1899,
+      "latencyMs": 306.53933399999914
+    },
+    {
+      "customer": "cus_0066",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 713,
+      "latencyMs": 309.9293340000004
+    },
+    {
+      "customer": "cus_0066",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 713,
+      "latencyMs": 337.3892500000002
+    },
+    {
+      "customer": "cus_0066",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 713,
+      "latencyMs": 322.5264169999991
+    },
+    {
+      "customer": "cus_0071",
+      "variant": "raw",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "sms_reminder",
+      "confidence": 0.23,
+      "inputTokens": 1753,
+      "latencyMs": 293.03333400000156
+    },
+    {
+      "customer": "cus_0071",
+      "variant": "raw",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "sms_reminder",
+      "confidence": 0.32,
+      "inputTokens": 1753,
+      "latencyMs": 311.1736669999991
+    },
+    {
+      "customer": "cus_0071",
+      "variant": "raw",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.28,
+      "inputTokens": 1753,
+      "latencyMs": 301.97941700000047
+    },
+    {
+      "customer": "cus_0071",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "wait",
+      "confidence": 0.32,
+      "inputTokens": 712,
+      "latencyMs": 306.14579200000117
+    },
+    {
+      "customer": "cus_0071",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "wait",
+      "confidence": 0.39,
+      "inputTokens": 712,
+      "latencyMs": 295.8295419999995
+    },
+    {
+      "customer": "cus_0071",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "wait",
+      "confidence": 0.44,
+      "inputTokens": 712,
+      "latencyMs": 272.1452079999999
+    },
+    {
+      "customer": "cus_0075",
+      "variant": "raw",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.61,
+      "inputTokens": 1997,
+      "latencyMs": 300.7158339999987
+    },
+    {
+      "customer": "cus_0075",
+      "variant": "raw",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.68,
+      "inputTokens": 1997,
+      "latencyMs": 325.11275000000023
+    },
+    {
+      "customer": "cus_0075",
+      "variant": "raw",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.59,
+      "inputTokens": 1997,
+      "latencyMs": 296.9516250000015
+    },
+    {
+      "customer": "cus_0075",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.99,
+      "inputTokens": 733,
+      "latencyMs": 289.7385830000003
+    },
+    {
+      "customer": "cus_0075",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.99,
+      "inputTokens": 733,
+      "latencyMs": 316.70879199999945
+    },
+    {
+      "customer": "cus_0075",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.99,
+      "inputTokens": 733,
+      "latencyMs": 313.01887499999975
+    },
+    {
+      "customer": "cus_0078",
+      "variant": "raw",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.96,
+      "inputTokens": 1695,
+      "latencyMs": 299.49825000000055
+    },
+    {
+      "customer": "cus_0078",
+      "variant": "raw",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.97,
+      "inputTokens": 1695,
+      "latencyMs": 309.972749999999
+    },
+    {
+      "customer": "cus_0078",
+      "variant": "raw",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.97,
+      "inputTokens": 1695,
+      "latencyMs": 298.54262500000004
+    },
+    {
+      "customer": "cus_0078",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 712,
+      "latencyMs": 297.0725419999999
+    },
+    {
+      "customer": "cus_0078",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 712,
+      "latencyMs": 291.45683299999837
+    },
+    {
+      "customer": "cus_0078",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 712,
+      "latencyMs": 353.12062499999956
+    },
+    {
+      "customer": "cus_0080",
+      "variant": "raw",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.94,
+      "inputTokens": 1453,
+      "latencyMs": 310.6568330000009
+    },
+    {
+      "customer": "cus_0080",
+      "variant": "raw",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.92,
+      "inputTokens": 1453,
+      "latencyMs": 312.1545420000002
+    },
+    {
+      "customer": "cus_0080",
+      "variant": "raw",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.86,
+      "inputTokens": 1453,
+      "latencyMs": 302.4763330000005
+    },
+    {
+      "customer": "cus_0080",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 691,
+      "latencyMs": 301.3193749999991
+    },
+    {
+      "customer": "cus_0080",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 691,
+      "latencyMs": 321.33379200000127
+    },
+    {
+      "customer": "cus_0080",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 691,
+      "latencyMs": 282.28929100000096
+    },
+    {
+      "customer": "cus_0088",
+      "variant": "raw",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.91,
+      "inputTokens": 1812,
+      "latencyMs": 322.71858299999985
+    },
+    {
+      "customer": "cus_0088",
+      "variant": "raw",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.91,
+      "inputTokens": 1812,
+      "latencyMs": 303.45066699999916
+    },
+    {
+      "customer": "cus_0088",
+      "variant": "raw",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.93,
+      "inputTokens": 1812,
+      "latencyMs": 309.46637499999997
+    },
+    {
+      "customer": "cus_0088",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 710,
+      "latencyMs": 368.71208300000035
+    },
+    {
+      "customer": "cus_0088",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 710,
+      "latencyMs": 364.2412499999991
+    },
+    {
+      "customer": "cus_0088",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 710,
+      "latencyMs": 357.62633299999834
+    },
+    {
+      "customer": "cus_0093",
+      "variant": "raw",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.62,
+      "inputTokens": 1716,
+      "latencyMs": 355.59000000000015
+    },
+    {
+      "customer": "cus_0093",
+      "variant": "raw",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.51,
+      "inputTokens": 1716,
+      "latencyMs": 370.2190420000006
+    },
+    {
+      "customer": "cus_0093",
+      "variant": "raw",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.54,
+      "inputTokens": 1716,
+      "latencyMs": 316.9755409999998
+    },
+    {
+      "customer": "cus_0093",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.99,
+      "inputTokens": 733,
+      "latencyMs": 290.9105840000011
+    },
+    {
+      "customer": "cus_0093",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.99,
+      "inputTokens": 733,
+      "latencyMs": 286.5230420000007
+    },
+    {
+      "customer": "cus_0093",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.97,
+      "inputTokens": 733,
+      "latencyMs": 290.07879200000025
+    },
+    {
+      "customer": "cus_0094",
+      "variant": "raw",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.86,
+      "inputTokens": 1662,
+      "latencyMs": 287.5706250000003
+    },
+    {
+      "customer": "cus_0094",
+      "variant": "raw",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.8,
+      "inputTokens": 1662,
+      "latencyMs": 298.1926660000008
+    },
+    {
+      "customer": "cus_0094",
+      "variant": "raw",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.89,
+      "inputTokens": 1662,
+      "latencyMs": 298.5983749999996
+    },
+    {
+      "customer": "cus_0094",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.98,
+      "inputTokens": 694,
+      "latencyMs": 291.6399170000004
+    },
+    {
+      "customer": "cus_0094",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.98,
+      "inputTokens": 694,
+      "latencyMs": 308.957124999999
+    },
+    {
+      "customer": "cus_0094",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "social_coverage_proof",
+      "got": "social_coverage_proof",
+      "confidence": 0.98,
+      "inputTokens": 694,
+      "latencyMs": 299.2767499999991
+    },
+    {
+      "customer": "cus_0110",
+      "variant": "raw",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.99,
+      "inputTokens": 1401,
+      "latencyMs": 296.04883300000074
+    },
+    {
+      "customer": "cus_0110",
+      "variant": "raw",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.99,
+      "inputTokens": 1401,
+      "latencyMs": 300.0539579999986
+    },
+    {
+      "customer": "cus_0110",
+      "variant": "raw",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 1401,
+      "latencyMs": 317.18566699999974
+    },
+    {
+      "customer": "cus_0110",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 711,
+      "latencyMs": 306.9330000000009
+    },
+    {
+      "customer": "cus_0110",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 711,
+      "latencyMs": 296.51674999999886
+    },
+    {
+      "customer": "cus_0110",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 711,
+      "latencyMs": 481.31162499999846
+    },
+    {
+      "customer": "cus_0112",
+      "variant": "raw",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "social_coverage_proof",
+      "confidence": 0.24,
+      "inputTokens": 1487,
+      "latencyMs": 305.683500000001
+    },
+    {
+      "customer": "cus_0112",
+      "variant": "raw",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.23,
+      "inputTokens": 1487,
+      "latencyMs": 326.7334580000006
+    },
+    {
+      "customer": "cus_0112",
+      "variant": "raw",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "social_coverage_proof",
+      "confidence": 0.24,
+      "inputTokens": 1487,
+      "latencyMs": 295.2459170000002
+    },
+    {
+      "customer": "cus_0112",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.79,
+      "inputTokens": 713,
+      "latencyMs": 296.95216699999946
+    },
+    {
+      "customer": "cus_0112",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.76,
+      "inputTokens": 713,
+      "latencyMs": 296.6222909999997
+    },
+    {
+      "customer": "cus_0112",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.77,
+      "inputTokens": 713,
+      "latencyMs": 301.2910419999989
+    },
+    {
+      "customer": "cus_0123",
+      "variant": "raw",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.95,
+      "inputTokens": 1903,
+      "latencyMs": 294.1506669999999
+    },
+    {
+      "customer": "cus_0123",
+      "variant": "raw",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.94,
+      "inputTokens": 1903,
+      "latencyMs": 282.623708000001
+    },
+    {
+      "customer": "cus_0123",
+      "variant": "raw",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 0.94,
+      "inputTokens": 1903,
+      "latencyMs": 380.27837499999987
+    },
+    {
+      "customer": "cus_0123",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 675,
+      "latencyMs": 349.8761250000007
+    },
+    {
+      "customer": "cus_0123",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 675,
+      "latencyMs": 263.362165999999
+    },
+    {
+      "customer": "cus_0123",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 675,
+      "latencyMs": 294.8528750000005
+    },
+    {
+      "customer": "cus_0136",
+      "variant": "raw",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 1445,
+      "latencyMs": 298.8418330000004
+    },
+    {
+      "customer": "cus_0136",
+      "variant": "raw",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 1445,
+      "latencyMs": 305.72983300000124
+    },
+    {
+      "customer": "cus_0136",
+      "variant": "raw",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 1445,
+      "latencyMs": 316.70037500000035
+    },
+    {
+      "customer": "cus_0136",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 676,
+      "latencyMs": 305.3661659999998
+    },
+    {
+      "customer": "cus_0136",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 676,
+      "latencyMs": 309.64500000000044
+    },
+    {
+      "customer": "cus_0136",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "service_handoff",
+      "got": "service_handoff",
+      "confidence": 1,
+      "inputTokens": 676,
+      "latencyMs": 287.9392089999983
+    },
+    {
+      "customer": "cus_0421",
+      "variant": "raw",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.74,
+      "inputTokens": 1496,
+      "latencyMs": 300.4881659999992
+    },
+    {
+      "customer": "cus_0421",
+      "variant": "raw",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.7,
+      "inputTokens": 1496,
+      "latencyMs": 296.5035420000004
+    },
+    {
+      "customer": "cus_0421",
+      "variant": "raw",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.64,
+      "inputTokens": 1496,
+      "latencyMs": 383.016834
+    },
+    {
+      "customer": "cus_0421",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.89,
+      "inputTokens": 677,
+      "latencyMs": 366.54316700000163
+    },
+    {
+      "customer": "cus_0421",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.88,
+      "inputTokens": 677,
+      "latencyMs": 350.253917
+    },
+    {
+      "customer": "cus_0421",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.89,
+      "inputTokens": 677,
+      "latencyMs": 328.65158299999894
+    },
+    {
+      "customer": "cus_0467",
+      "variant": "raw",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.59,
+      "inputTokens": 2065,
+      "latencyMs": 289.3761250000007
+    },
+    {
+      "customer": "cus_0467",
+      "variant": "raw",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.63,
+      "inputTokens": 2065,
+      "latencyMs": 279.1218340000014
+    },
+    {
+      "customer": "cus_0467",
+      "variant": "raw",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.61,
+      "inputTokens": 2065,
+      "latencyMs": 309.0230410000004
+    },
+    {
+      "customer": "cus_0467",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.87,
+      "inputTokens": 712,
+      "latencyMs": 338.2595000000001
+    },
+    {
+      "customer": "cus_0467",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.79,
+      "inputTokens": 712,
+      "latencyMs": 299.54304200000115
+    },
+    {
+      "customer": "cus_0467",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.79,
+      "inputTokens": 712,
+      "latencyMs": 312.420583000001
+    },
+    {
+      "customer": "cus_0610",
+      "variant": "raw",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.33,
+      "inputTokens": 1389,
+      "latencyMs": 297.11362499999996
+    },
+    {
+      "customer": "cus_0610",
+      "variant": "raw",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.31,
+      "inputTokens": 1389,
+      "latencyMs": 320.9174579999999
+    },
+    {
+      "customer": "cus_0610",
+      "variant": "raw",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.33,
+      "inputTokens": 1389,
+      "latencyMs": 326.94216699999924
+    },
+    {
+      "customer": "cus_0610",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.94,
+      "inputTokens": 678,
+      "latencyMs": 275.1423340000001
+    },
+    {
+      "customer": "cus_0610",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.95,
+      "inputTokens": 678,
+      "latencyMs": 284.9387080000015
+    },
+    {
+      "customer": "cus_0610",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.94,
+      "inputTokens": 678,
+      "latencyMs": 288.9369999999999
+    },
+    {
+      "customer": "cus_0724",
+      "variant": "raw",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.25,
+      "inputTokens": 1399,
+      "latencyMs": 298.91062500000044
+    },
+    {
+      "customer": "cus_0724",
+      "variant": "raw",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.17,
+      "inputTokens": 1399,
+      "latencyMs": 285.87237500000083
+    },
+    {
+      "customer": "cus_0724",
+      "variant": "raw",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.24,
+      "inputTokens": 1399,
+      "latencyMs": 311.3548749999991
+    },
+    {
+      "customer": "cus_0724",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.73,
+      "inputTokens": 713,
+      "latencyMs": 301.4513330000009
+    },
+    {
+      "customer": "cus_0724",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.77,
+      "inputTokens": 713,
+      "latencyMs": 269.070208000001
+    },
+    {
+      "customer": "cus_0724",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.8,
+      "inputTokens": 713,
+      "latencyMs": 298.73383300000023
+    },
+    {
+      "customer": "cus_0793",
+      "variant": "raw",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "wait",
+      "confidence": 0.33,
+      "inputTokens": 1392,
+      "latencyMs": 281.02950000000055
+    },
+    {
+      "customer": "cus_0793",
+      "variant": "raw",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "wait",
+      "confidence": 0.37,
+      "inputTokens": 1392,
+      "latencyMs": 293.1687089999996
+    },
+    {
+      "customer": "cus_0793",
+      "variant": "raw",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "wait",
+      "confidence": 0.35,
+      "inputTokens": 1392,
+      "latencyMs": 293.8557500000006
+    },
+    {
+      "customer": "cus_0793",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.96,
+      "inputTokens": 712,
+      "latencyMs": 338.0095419999998
+    },
+    {
+      "customer": "cus_0793",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.96,
+      "inputTokens": 712,
+      "latencyMs": 302.2011670000011
+    },
+    {
+      "customer": "cus_0793",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.96,
+      "inputTokens": 712,
+      "latencyMs": 288.33041700000103
+    },
+    {
+      "customer": "cus_0944",
+      "variant": "raw",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.61,
+      "inputTokens": 1890,
+      "latencyMs": 320.49112500000047
+    },
+    {
+      "customer": "cus_0944",
+      "variant": "raw",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.53,
+      "inputTokens": 1890,
+      "latencyMs": 389.0630830000009
+    },
+    {
+      "customer": "cus_0944",
+      "variant": "raw",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.58,
+      "inputTokens": 1890,
+      "latencyMs": 373.4200409999994
+    },
+    {
+      "customer": "cus_0944",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.97,
+      "inputTokens": 677,
+      "latencyMs": 282.7592089999998
+    },
+    {
+      "customer": "cus_0944",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.98,
+      "inputTokens": 677,
+      "latencyMs": 282.60412499999984
+    },
+    {
+      "customer": "cus_0944",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.95,
+      "inputTokens": 677,
+      "latencyMs": 282.52870900000016
+    },
+    {
+      "customer": "cus_1176",
+      "variant": "raw",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.15,
+      "inputTokens": 1744,
+      "latencyMs": 322.9872920000016
+    },
+    {
+      "customer": "cus_1176",
+      "variant": "raw",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.12,
+      "inputTokens": 1744,
+      "latencyMs": 298.21662500000093
+    },
+    {
+      "customer": "cus_1176",
+      "variant": "raw",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "wait",
+      "confidence": 0.16,
+      "inputTokens": 1744,
+      "latencyMs": 289.3797919999997
+    },
+    {
+      "customer": "cus_1176",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.81,
+      "inputTokens": 712,
+      "latencyMs": 293.38616699999875
+    },
+    {
+      "customer": "cus_1176",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.83,
+      "inputTokens": 712,
+      "latencyMs": 298.92362499999945
+    },
+    {
+      "customer": "cus_1176",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.81,
+      "inputTokens": 712,
+      "latencyMs": 308.45820900000035
+    },
+    {
+      "customer": "cus_1209",
+      "variant": "raw",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.38,
+      "inputTokens": 1713,
+      "latencyMs": 301.7657909999998
+    },
+    {
+      "customer": "cus_1209",
+      "variant": "raw",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.4,
+      "inputTokens": 1713,
+      "latencyMs": 276.33087499999965
+    },
+    {
+      "customer": "cus_1209",
+      "variant": "raw",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.4,
+      "inputTokens": 1713,
+      "latencyMs": 340.4541250000002
+    },
+    {
+      "customer": "cus_1209",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.95,
+      "inputTokens": 677,
+      "latencyMs": 339.1280829999996
+    },
+    {
+      "customer": "cus_1209",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.95,
+      "inputTokens": 677,
+      "latencyMs": 337.16925000000083
+    },
+    {
+      "customer": "cus_1209",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.95,
+      "inputTokens": 677,
+      "latencyMs": 278.8902079999989
+    },
+    {
+      "customer": "cus_1213",
+      "variant": "raw",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.55,
+      "inputTokens": 1696,
+      "latencyMs": 296.76287500000035
+    },
+    {
+      "customer": "cus_1213",
+      "variant": "raw",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.55,
+      "inputTokens": 1696,
+      "latencyMs": 293.6787499999991
+    },
+    {
+      "customer": "cus_1213",
+      "variant": "raw",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.6,
+      "inputTokens": 1696,
+      "latencyMs": 298.1724580000009
+    },
+    {
+      "customer": "cus_1213",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.76,
+      "inputTokens": 713,
+      "latencyMs": 278.076583
+    },
+    {
+      "customer": "cus_1213",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.77,
+      "inputTokens": 713,
+      "latencyMs": 299.998583999999
+    },
+    {
+      "customer": "cus_1213",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.68,
+      "inputTokens": 713,
+      "latencyMs": 269.9852090000004
+    },
+    {
+      "customer": "cus_1237",
+      "variant": "raw",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.7,
+      "inputTokens": 1896,
+      "latencyMs": 274.0431249999983
+    },
+    {
+      "customer": "cus_1237",
+      "variant": "raw",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.62,
+      "inputTokens": 1896,
+      "latencyMs": 309.3068750000002
+    },
+    {
+      "customer": "cus_1237",
+      "variant": "raw",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.56,
+      "inputTokens": 1896,
+      "latencyMs": 316.25324999999975
+    },
+    {
+      "customer": "cus_1237",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.91,
+      "inputTokens": 677,
+      "latencyMs": 389.23512500000106
+    },
+    {
+      "customer": "cus_1237",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.91,
+      "inputTokens": 677,
+      "latencyMs": 354.74020799999926
+    },
+    {
+      "customer": "cus_1237",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "sms_reminder",
+      "got": "sms_reminder",
+      "confidence": 0.89,
+      "inputTokens": 677,
+      "latencyMs": 336.1035840000004
+    }
+  ]
+}
