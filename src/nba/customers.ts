@@ -1,12 +1,25 @@
+/**
+ * The customers the demo and benchmark run on: the example from Uplane's post plus seeded
+ * synthetic customers.
+ * Why synthetic: no real customer data is needed or used, and anyone can reproduce the results.
+ */
 import { ACTIONS, type Action, COVERAGE_PAGE, DAY, type RawCustomer, TARIFF_PAGE, policy, signals } from "./journey.js";
 
-/** Tuesday 09:14 UTC, the moment of decision in every case. */
+/**
+ * Tuesday 09:14 UTC, the moment of decision in every case.
+ * Why fixed: "in the last 7 days" depends on the clock, so a fixed clock keeps every run identical.
+ * Why this time: it is the moment in Uplane's example.
+ */
 export const NOW = Date.UTC(2026, 9, 13, 9, 14);
 
 const HOUR = DAY / 24;
 const OTHER_PAGES = ["/home", "/account", "/devices/phone-17", "/support/billing", "/offers", "/roaming"];
 
-/** Deterministic random numbers for a given seed. */
+/**
+ * A small seeded random number generator (mulberry32).
+ * Why not Math.random(): the same seed must always produce the same customers, so a benchmark
+ * can be rerun and checked by anyone.
+ */
 export function mulberry32(seed: number) {
   return () => {
     seed = (seed + 0x6d2b79f5) | 0;
@@ -50,12 +63,18 @@ export function blogExample(): RawCustomer {
   };
 }
 
+/**
+ * One random but realistic customer record.
+ * Why the noise (device, tracking, extra pages, old visits): real CRM records look like this, and
+ * the benchmark measures how well Jev handles it raw versus after jev-state.
+ */
 function randomCustomer(rnd: () => number, n: number): RawCustomer {
   const int = (lo: number, hi: number) => lo + Math.floor(rnd() * (hi - lo + 1));
   const chance = (p: number) => rnd() < p;
   const one = <T>(xs: readonly T[]) => xs[Math.floor(rnd() * xs.length)]!;
   const ago = (maxDays: number) => NOW - rnd() * maxDays * DAY;
 
+  // Page views: tariff and coverage visits up to 13 days back, so some fall outside the 7-day window.
   const events: RawCustomer["events"] = [];
   const session = () => `s_${int(0x1000, 0xffff).toString(16)}`;
   // Some visits fall outside the 7-day window on purpose.
@@ -64,6 +83,7 @@ function randomCustomer(rnd: () => number, n: number): RawCustomer {
   for (let i = int(2, 8); i > 0; i--) events.push({ type: "page_view", path: one(OTHER_PAGES), at: ago(30), sessionId: session() });
   events.sort((a, b) => a.at - b.at);
 
+  // Messages sent in the last 20 days; email-heavy, like most CRM send logs.
   const sendLog: RawCustomer["sendLog"] = [];
   for (let i = int(0, 4); i > 0; i--) {
     sendLog.push({
@@ -75,6 +95,7 @@ function randomCustomer(rnd: () => number, n: number): RawCustomer {
   }
   sendLog.sort((a, b) => a.sentAt - b.sentAt);
 
+  // About 30% of customers have a support ticket, some still open.
   const tickets: RawCustomer["tickets"] = [];
   if (chance(0.3)) {
     const openedAt = ago(60);
@@ -109,12 +130,18 @@ function randomCustomer(rnd: () => number, n: number): RawCustomer {
   };
 }
 
+/** One test case: the raw customer and the correct action by the policy. */
 export interface Case {
   raw: RawCustomer;
   expected: Action;
 }
 
-/** `perAction` generated customers for each action, deterministic for a given seed. */
+/**
+ * `perAction` customers for each action, deterministic for a given seed.
+ * Why balanced: with random customers, "wait" and "email" would dominate, and a model that
+ * always guessed them would look accurate. Equal counts per action make accuracy honest.
+ * Different seeds give separate sets, so the state design can be tuned on one and measured on another.
+ */
 export function makeCases(perAction = 12, seed = 42): Case[] {
   const rnd = mulberry32(seed);
   const want = Object.fromEntries(Object.keys(ACTIONS).map((a) => [a, perAction])) as Record<Action, number>;
@@ -131,7 +158,7 @@ export function makeCases(perAction = 12, seed = 42): Case[] {
   return out;
 }
 
-/** A one-line summary of a case, for logs. */
+/** A one-line human summary of a case, so logs are readable without opening the raw JSON. */
 export function summary(c: RawCustomer): string {
   const s = signals(c);
   const parts = [

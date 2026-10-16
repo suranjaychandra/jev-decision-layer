@@ -1,14 +1,29 @@
 /**
  * Next best action for one journey: a mobile operator's contract renewal.
- * The actions, the hard limits enforced in code, and the policy used to grade answers.
+ *
+ * Why this journey: it is the worked example in Uplane's post "Beyond the Campaign", where
+ * timing obviously matters, so the demo can be checked against a case they published.
+ *
+ * This file holds the business side: the actions, the hard limits enforced in code, and the
+ * policy used to grade Jev's answers. Nothing here calls Jev.
  */
 
+// Time units in milliseconds, because the raw record stores epoch-ms timestamps like a real CRM.
 export const DAY = 24 * 60 * 60 * 1000;
 export const WEEK = 7 * DAY;
 
-/** Emails one customer may receive in any rolling 7 days. */
+/**
+ * Emails one customer may receive in any rolling 7 days.
+ * Why: the post's example hinges on "two of two emails already used this week". A contact cap is
+ * what stops a decision layer from turning into continuous interruption.
+ */
 export const WEEKLY_EMAIL_CAP = 2;
 
+/**
+ * The five actions and the description Jev reads for each.
+ * Why `wait` is an action: the post argues "the right to send nothing" is what separates
+ * engagement from interruption, so doing nothing must be a real, choosable option.
+ */
 export const ACTIONS = {
   service_handoff: "Hand the customer to customer service.",
   email_upgrade_offer: "Email the contract upgrade offer.",
@@ -17,15 +32,18 @@ export const ACTIONS = {
   wait: "Do nothing now. Waiting is not a contact.",
 } as const;
 
+/** One of the action ids above. Deriving the type from ACTIONS keeps the list in one place. */
 export type Action = keyof typeof ACTIONS;
 
 /**
- * The pages, messages, and tickets a CRM and web analytics stack record about one customer.
- * A type alias (not an interface) so it is assignable to the SDK's JSON state type.
+ * Everything a CRM and web analytics stack record about one customer, the way they store it:
+ * epoch timestamps, raw event lists, and fields irrelevant to the decision (device, tracking, ids).
+ * Why so messy: the benchmark sends this as the "raw" version, so it has to look like real data.
+ * It is a type alias, not an interface, so TypeScript accepts it as the SDK's JSON state type.
  */
 export type RawCustomer = {
   customerId: string;
-  /** Epoch ms at the moment of decision. */
+  /** Epoch ms at the moment of decision. A fixed clock makes every run reproducible. */
   now: number;
   plan: { name: string; monthlyPrice: number; currency: string };
   contract: { startedAt: number; renewsAt: number };
@@ -39,12 +57,20 @@ export type RawCustomer = {
   internal: { crmId: string; segmentIds: string[]; lastSyncedAt: number };
 };
 
+// The two pages that signal renewal interest. Named once so the policy and the projection agree.
 export const TARIFF_PAGE = "/tariffs/compare";
 export const COVERAGE_PAGE = "/coverage";
 
-/** The facts the policy reads, computed in code from the raw record. */
+/**
+ * The facts the rules depend on, computed in plain code from the raw record.
+ * Why: counting events in a time window and doing date math are exactly what Jev is weak at, so
+ * the grading policy must never rely on a model for them. The tests also use this as the source
+ * of truth to check that the jev-state labels say the same thing.
+ */
 export function signals(c: RawCustomer) {
+  // Rolling window: "in the last 7 days" means strictly less than 7 days before the decision.
   const inLastWeek = (at: number) => c.now - at < WEEK;
+  // Newest offer first, because only the most recent offer's outcome matters.
   const offers = c.sendLog.filter((s) => s.campaign === "upgrade_offer").sort((a, b) => b.sentAt - a.sentAt);
   return {
     tariffVisits: c.events.filter((e) => e.path === TARIFF_PAGE && inLastWeek(e.at)).length,
@@ -53,14 +79,20 @@ export function signals(c: RawCustomer) {
     emailsThisWeek: c.sendLog.filter((s) => s.channel === "email" && inLastWeek(s.sentAt)).length,
     lastOffer: offers.length === 0 ? "none" : offers[0]!.opened ? "opened" : "ignored",
     openTicket: c.tickets.some((t) => t.status === "open"),
+    // A fault counts even if its ticket is closed: a customer who lost service days ago
+    // should not receive a sales message yet.
     recentFault: c.tickets.some((t) => t.topic === "network_fault" && inLastWeek(t.openedAt)),
     fiveG: c.network.fiveGLiveAtAddress,
   } as const;
 }
 
 /**
- * Hard limits, enforced in code before Jev sees the options: consent per channel and the
- * weekly email cap. Jev can only choose among what is left. Service and waiting are always allowed.
+ * The hard limits: consent per channel and the weekly email cap. Blocked actions are removed
+ * before Jev sees the question.
+ * Why in code and not in the prompt: a rule the model is asked to follow can still be broken;
+ * an option the model never sees cannot be chosen. This is the "people set the limits, the
+ * system chooses within them" split from the post. Service and waiting never contact the
+ * customer through a marketing channel, so they are always allowed.
  */
 export function allowedActions(c: RawCustomer): Action[] {
   const s = signals(c);
@@ -72,7 +104,12 @@ export function allowedActions(c: RawCustomer): Action[] {
   return allowed;
 }
 
-/** The rules Jev is given. The same text for raw and jev-state. */
+/**
+ * The rules Jev is given, in plain words. The raw and jev-state versions get the exact same
+ * text, so any difference in their answers comes from the state format alone.
+ * Why "apply the FIRST rule that matches": an ordered list gives exactly one correct answer per
+ * customer, which makes grading objective.
+ */
 export const INSTRUCTIONS = `You are the decision layer for a mobile network operator's contract-renewal journey. Choose the next action for this customer.
 Every listed option is already permitted by consent and contact limits. Only choose a listed option.
 Definitions:
@@ -87,17 +124,25 @@ Apply the FIRST rule that matches:
 6. social_coverage_proof: if listed.
 7. wait.`;
 
-/** The correct answer by the rules. Mirrors INSTRUCTIONS exactly. */
+/**
+ * The correct answer by the rules, written in code. It mirrors INSTRUCTIONS line by line.
+ * Why: every Jev answer is graded against this, so accuracy numbers are measured, not judged.
+ */
 export function policy(c: RawCustomer): Action {
   const s = signals(c);
   const allowed = new Set(allowedActions(c));
+  // 1. Service first: someone with an open problem should not get a sales message.
   if (s.openTicket || s.recentFault) return "service_handoff";
+  // 2. Deliberate silence when there is no sign of interest and renewal is far away.
   if (s.tariffVisits < 2 && s.daysToRenewal >= 60) return "wait";
+  // 3. They ignored the offer, so show proof instead of repeating it (the post's choice).
   if (allowed.has("social_coverage_proof") && s.lastOffer === "ignored" && (s.fiveG || s.coverageVisited)) {
     return "social_coverage_proof";
   }
+  // 4–6. Otherwise the most direct channel still allowed.
   if (allowed.has("email_upgrade_offer")) return "email_upgrade_offer";
   if (allowed.has("sms_reminder") && s.daysToRenewal < 14) return "sms_reminder";
   if (allowed.has("social_coverage_proof")) return "social_coverage_proof";
+  // 7. Nothing fits: waiting is a valid decision.
   return "wait";
 }

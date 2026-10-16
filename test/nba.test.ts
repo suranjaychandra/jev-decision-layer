@@ -1,14 +1,21 @@
+/**
+ * Tests for Scene 1, with no network and no API key.
+ * Why: the benchmark is only meaningful if the grading policy, the hard limits, and the jev-state
+ * labels are right. These tests pin every rule, every boundary (7, 14, and 60 days), and the
+ * example from Uplane's post, so a later change can't silently move the goalposts.
+ */
 import { describe, expect, it } from "vitest";
 import { NOW, blogExample, makeCases } from "../src/nba/customers.js";
 import { ACTIONS, type Action, DAY, type RawCustomer, TARIFF_PAGE, allowedActions, policy, signals } from "../src/nba/journey.js";
 import { actionQuestion, jevState } from "../src/nba/state.js";
 
-/** The blog example with changes applied. */
+/** The blog example with one change applied, so each test shows exactly what it varies. */
 const customer = (change: (c: RawCustomer) => void = () => {}) => {
   const c = blogExample();
   change(c);
   return c;
 };
+// A tariff-page visit a given number of days before the decision.
 const visit = (daysAgo: number) => ({ type: "page_view" as const, path: TARIFF_PAGE, at: NOW - daysAgo * DAY, sessionId: "s_test" });
 
 describe("the example from Uplane's decision-layer post", () => {
