@@ -1,0 +1,2927 @@
+{
+  "date": "2026-10-17",
+  "model": "jev-1.13.0",
+  "seed": 42,
+  "perAction": 12,
+  "reruns": 3,
+  "summary": {
+    "raw": {
+      "calls": 144,
+      "errors": 0,
+      "accuracy": 0.5833333333333334,
+      "humanReviewRate": 0.8541666666666666,
+      "wrongExecuted": 3,
+      "executedAccuracy": 0.8571428571428571,
+      "unstableCases": 6,
+      "avgInputTokens": 1266.8333333333333,
+      "p50LatencyMs": 324.6214579999996,
+      "p95LatencyMs": 429.15791699999954,
+      "perAction": {
+        "hold": 0.5277777777777778,
+        "retire": 0.2222222222222222,
+        "pause": 0.8611111111111112,
+        "scale": 0.7222222222222222
+      }
+    },
+    "jev-state": {
+      "calls": 144,
+      "errors": 0,
+      "accuracy": 1,
+      "humanReviewRate": 0.034722222222222224,
+      "wrongExecuted": 0,
+      "executedAccuracy": 1,
+      "unstableCases": 0,
+      "avgInputTokens": 609.0416666666666,
+      "p50LatencyMs": 314.77241700000013,
+      "p95LatencyMs": 405.25895799999944,
+      "perAction": {
+        "hold": 1,
+        "retire": 1,
+        "pause": 1,
+        "scale": 1
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "ad_0001",
+      "variant": "raw",
+      "run": 0,
+      "expected": "hold",
+      "got": "scale",
+      "confidence": 0.28,
+      "inputTokens": 1381,
+      "latencyMs": 430.81016700000004
+    },
+    {
+      "id": "ad_0001",
+      "variant": "raw",
+      "run": 1,
+      "expected": "hold",
+      "got": "scale",
+      "confidence": 0.28,
+      "inputTokens": 1381,
+      "latencyMs": 419.70808300000004
+    },
+    {
+      "id": "ad_0001",
+      "variant": "raw",
+      "run": 2,
+      "expected": "hold",
+      "got": "scale",
+      "confidence": 0.23,
+      "inputTokens": 1381,
+      "latencyMs": 446.04004100000003
+    },
+    {
+      "id": "ad_0001",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.97,
+      "inputTokens": 614,
+      "latencyMs": 419.702667
+    },
+    {
+      "id": "ad_0001",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.96,
+      "inputTokens": 614,
+      "latencyMs": 412.4595
+    },
+    {
+      "id": "ad_0001",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.93,
+      "inputTokens": 614,
+      "latencyMs": 419.488791
+    },
+    {
+      "id": "ad_0002",
+      "variant": "raw",
+      "run": 0,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.96,
+      "inputTokens": 917,
+      "latencyMs": 415.22724999999997
+    },
+    {
+      "id": "ad_0002",
+      "variant": "raw",
+      "run": 1,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.94,
+      "inputTokens": 917,
+      "latencyMs": 413.685584
+    },
+    {
+      "id": "ad_0002",
+      "variant": "raw",
+      "run": 2,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.96,
+      "inputTokens": 917,
+      "latencyMs": 285.803208
+    },
+    {
+      "id": "ad_0002",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 572,
+      "latencyMs": 280.590958
+    },
+    {
+      "id": "ad_0002",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 572,
+      "latencyMs": 397.287916
+    },
+    {
+      "id": "ad_0002",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 572,
+      "latencyMs": 293.1617499999999
+    },
+    {
+      "id": "ad_0003",
+      "variant": "raw",
+      "run": 0,
+      "expected": "hold",
+      "got": "pause",
+      "confidence": 0.76,
+      "inputTokens": 1236,
+      "latencyMs": 298.35712499999994
+    },
+    {
+      "id": "ad_0003",
+      "variant": "raw",
+      "run": 1,
+      "expected": "hold",
+      "got": "pause",
+      "confidence": 0.71,
+      "inputTokens": 1236,
+      "latencyMs": 292.881834
+    },
+    {
+      "id": "ad_0003",
+      "variant": "raw",
+      "run": 2,
+      "expected": "hold",
+      "got": "pause",
+      "confidence": 0.73,
+      "inputTokens": 1236,
+      "latencyMs": 292.333458
+    },
+    {
+      "id": "ad_0003",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 596,
+      "latencyMs": 277.8215
+    },
+    {
+      "id": "ad_0003",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 596,
+      "latencyMs": 286.081583
+    },
+    {
+      "id": "ad_0003",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 596,
+      "latencyMs": 274.24091599999997
+    },
+    {
+      "id": "ad_0004",
+      "variant": "raw",
+      "run": 0,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0,
+      "inputTokens": 982,
+      "latencyMs": 296.33833400000015
+    },
+    {
+      "id": "ad_0004",
+      "variant": "raw",
+      "run": 1,
+      "expected": "hold",
+      "got": "scale",
+      "confidence": 0,
+      "inputTokens": 982,
+      "latencyMs": 270.983125
+    },
+    {
+      "id": "ad_0004",
+      "variant": "raw",
+      "run": 2,
+      "expected": "hold",
+      "got": "scale",
+      "confidence": 0.02,
+      "inputTokens": 982,
+      "latencyMs": 302.81837499999995
+    },
+    {
+      "id": "ad_0004",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.94,
+      "inputTokens": 571,
+      "latencyMs": 284.3102499999999
+    },
+    {
+      "id": "ad_0004",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.96,
+      "inputTokens": 571,
+      "latencyMs": 312.63425000000007
+    },
+    {
+      "id": "ad_0004",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.92,
+      "inputTokens": 571,
+      "latencyMs": 315.21966599999996
+    },
+    {
+      "id": "ad_0005",
+      "variant": "raw",
+      "run": 0,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.27,
+      "inputTokens": 1269,
+      "latencyMs": 279.30491699999993
+    },
+    {
+      "id": "ad_0005",
+      "variant": "raw",
+      "run": 1,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.21,
+      "inputTokens": 1269,
+      "latencyMs": 281.63024999999993
+    },
+    {
+      "id": "ad_0005",
+      "variant": "raw",
+      "run": 2,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.19,
+      "inputTokens": 1269,
+      "latencyMs": 292.9124999999999
+    },
+    {
+      "id": "ad_0005",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.76,
+      "inputTokens": 614,
+      "latencyMs": 292.71341600000005
+    },
+    {
+      "id": "ad_0005",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.8,
+      "inputTokens": 614,
+      "latencyMs": 300.37699999999995
+    },
+    {
+      "id": "ad_0005",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.71,
+      "inputTokens": 614,
+      "latencyMs": 282.3232499999999
+    },
+    {
+      "id": "ad_0006",
+      "variant": "raw",
+      "run": 0,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.92,
+      "inputTokens": 964,
+      "latencyMs": 371.1112499999999
+    },
+    {
+      "id": "ad_0006",
+      "variant": "raw",
+      "run": 1,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.91,
+      "inputTokens": 964,
+      "latencyMs": 291.45408299999986
+    },
+    {
+      "id": "ad_0006",
+      "variant": "raw",
+      "run": 2,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.89,
+      "inputTokens": 964,
+      "latencyMs": 404.246709
+    },
+    {
+      "id": "ad_0006",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 615,
+      "latencyMs": 287.8042499999999
+    },
+    {
+      "id": "ad_0006",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 615,
+      "latencyMs": 380.66658299999995
+    },
+    {
+      "id": "ad_0006",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 615,
+      "latencyMs": 363.06958299999997
+    },
+    {
+      "id": "ad_0007",
+      "variant": "raw",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.33,
+      "inputTokens": 1302,
+      "latencyMs": 360.01208299999985
+    },
+    {
+      "id": "ad_0007",
+      "variant": "raw",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.35,
+      "inputTokens": 1302,
+      "latencyMs": 350.02645800000005
+    },
+    {
+      "id": "ad_0007",
+      "variant": "raw",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.45,
+      "inputTokens": 1302,
+      "latencyMs": 485.04883399999994
+    },
+    {
+      "id": "ad_0007",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.77,
+      "inputTokens": 596,
+      "latencyMs": 267.0177080000001
+    },
+    {
+      "id": "ad_0007",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.85,
+      "inputTokens": 596,
+      "latencyMs": 305.24850000000015
+    },
+    {
+      "id": "ad_0007",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.85,
+      "inputTokens": 596,
+      "latencyMs": 331.9852500000002
+    },
+    {
+      "id": "ad_0008",
+      "variant": "raw",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.15,
+      "inputTokens": 1618,
+      "latencyMs": 316.44179099999997
+    },
+    {
+      "id": "ad_0008",
+      "variant": "raw",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.17,
+      "inputTokens": 1618,
+      "latencyMs": 328.009417
+    },
+    {
+      "id": "ad_0008",
+      "variant": "raw",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.24,
+      "inputTokens": 1618,
+      "latencyMs": 314.485625
+    },
+    {
+      "id": "ad_0008",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.63,
+      "inputTokens": 614,
+      "latencyMs": 311.8949170000001
+    },
+    {
+      "id": "ad_0008",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.4,
+      "inputTokens": 614,
+      "latencyMs": 300.2160829999998
+    },
+    {
+      "id": "ad_0008",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.72,
+      "inputTokens": 614,
+      "latencyMs": 323.11454200000026
+    },
+    {
+      "id": "ad_0009",
+      "variant": "raw",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.4,
+      "inputTokens": 1539,
+      "latencyMs": 319.2206249999999
+    },
+    {
+      "id": "ad_0009",
+      "variant": "raw",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.55,
+      "inputTokens": 1539,
+      "latencyMs": 314.656375
+    },
+    {
+      "id": "ad_0009",
+      "variant": "raw",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.46,
+      "inputTokens": 1539,
+      "latencyMs": 291.21670800000015
+    },
+    {
+      "id": "ad_0009",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.83,
+      "inputTokens": 596,
+      "latencyMs": 298.78150000000005
+    },
+    {
+      "id": "ad_0009",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.72,
+      "inputTokens": 596,
+      "latencyMs": 347.2102500000001
+    },
+    {
+      "id": "ad_0009",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.79,
+      "inputTokens": 596,
+      "latencyMs": 297.56358399999976
+    },
+    {
+      "id": "ad_0010",
+      "variant": "raw",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.23,
+      "inputTokens": 1589,
+      "latencyMs": 318.2407089999999
+    },
+    {
+      "id": "ad_0010",
+      "variant": "raw",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.21,
+      "inputTokens": 1589,
+      "latencyMs": 315.328
+    },
+    {
+      "id": "ad_0010",
+      "variant": "raw",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.24,
+      "inputTokens": 1589,
+      "latencyMs": 297.7794170000002
+    },
+    {
+      "id": "ad_0010",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.72,
+      "inputTokens": 614,
+      "latencyMs": 276.2600000000002
+    },
+    {
+      "id": "ad_0010",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.75,
+      "inputTokens": 614,
+      "latencyMs": 286.7440419999998
+    },
+    {
+      "id": "ad_0010",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.69,
+      "inputTokens": 614,
+      "latencyMs": 282.24379199999976
+    },
+    {
+      "id": "ad_0011",
+      "variant": "raw",
+      "run": 0,
+      "expected": "hold",
+      "got": "pause",
+      "confidence": 0.37,
+      "inputTokens": 1171,
+      "latencyMs": 308.39945799999987
+    },
+    {
+      "id": "ad_0011",
+      "variant": "raw",
+      "run": 1,
+      "expected": "hold",
+      "got": "pause",
+      "confidence": 0.33,
+      "inputTokens": 1171,
+      "latencyMs": 394.74208299999964
+    },
+    {
+      "id": "ad_0011",
+      "variant": "raw",
+      "run": 2,
+      "expected": "hold",
+      "got": "pause",
+      "confidence": 0.4,
+      "inputTokens": 1171,
+      "latencyMs": 369.4164169999999
+    },
+    {
+      "id": "ad_0011",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.89,
+      "inputTokens": 596,
+      "latencyMs": 273.70445900000004
+    },
+    {
+      "id": "ad_0011",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.92,
+      "inputTokens": 596,
+      "latencyMs": 318.8024999999998
+    },
+    {
+      "id": "ad_0011",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.91,
+      "inputTokens": 596,
+      "latencyMs": 296.50629200000003
+    },
+    {
+      "id": "ad_0012",
+      "variant": "raw",
+      "run": 0,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.96,
+      "inputTokens": 860,
+      "latencyMs": 271.70670900000005
+    },
+    {
+      "id": "ad_0012",
+      "variant": "raw",
+      "run": 1,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.92,
+      "inputTokens": 860,
+      "latencyMs": 289.32024999999976
+    },
+    {
+      "id": "ad_0012",
+      "variant": "raw",
+      "run": 2,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.96,
+      "inputTokens": 860,
+      "latencyMs": 277.06116599999996
+    },
+    {
+      "id": "ad_0012",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 572,
+      "latencyMs": 287.40083300000015
+    },
+    {
+      "id": "ad_0012",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 572,
+      "latencyMs": 269.3273330000002
+    },
+    {
+      "id": "ad_0012",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 572,
+      "latencyMs": 469.4783339999999
+    },
+    {
+      "id": "ad_0013",
+      "variant": "raw",
+      "run": 0,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.85,
+      "inputTokens": 970,
+      "latencyMs": 293.681333
+    },
+    {
+      "id": "ad_0013",
+      "variant": "raw",
+      "run": 1,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.85,
+      "inputTokens": 970,
+      "latencyMs": 405.02220799999986
+    },
+    {
+      "id": "ad_0013",
+      "variant": "raw",
+      "run": 2,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.89,
+      "inputTokens": 970,
+      "latencyMs": 286.07450000000017
+    },
+    {
+      "id": "ad_0013",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 615,
+      "latencyMs": 269.18833300000006
+    },
+    {
+      "id": "ad_0013",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 615,
+      "latencyMs": 366.0093340000003
+    },
+    {
+      "id": "ad_0013",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 615,
+      "latencyMs": 288.9981250000001
+    },
+    {
+      "id": "ad_0014",
+      "variant": "raw",
+      "run": 0,
+      "expected": "hold",
+      "got": "pause",
+      "confidence": 0.51,
+      "inputTokens": 1141,
+      "latencyMs": 308.505083
+    },
+    {
+      "id": "ad_0014",
+      "variant": "raw",
+      "run": 1,
+      "expected": "hold",
+      "got": "pause",
+      "confidence": 0.43,
+      "inputTokens": 1141,
+      "latencyMs": 347.204667
+    },
+    {
+      "id": "ad_0014",
+      "variant": "raw",
+      "run": 2,
+      "expected": "hold",
+      "got": "pause",
+      "confidence": 0.39,
+      "inputTokens": 1141,
+      "latencyMs": 284.3696249999998
+    },
+    {
+      "id": "ad_0014",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.95,
+      "inputTokens": 614,
+      "latencyMs": 322.02066600000035
+    },
+    {
+      "id": "ad_0014",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.96,
+      "inputTokens": 614,
+      "latencyMs": 316.17979200000036
+    },
+    {
+      "id": "ad_0014",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.96,
+      "inputTokens": 614,
+      "latencyMs": 299.83783300000005
+    },
+    {
+      "id": "ad_0015",
+      "variant": "raw",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.36,
+      "inputTokens": 1133,
+      "latencyMs": 321.2077909999998
+    },
+    {
+      "id": "ad_0015",
+      "variant": "raw",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.48,
+      "inputTokens": 1133,
+      "latencyMs": 303.4427499999997
+    },
+    {
+      "id": "ad_0015",
+      "variant": "raw",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.37,
+      "inputTokens": 1133,
+      "latencyMs": 329.19066599999996
+    },
+    {
+      "id": "ad_0015",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.72,
+      "inputTokens": 614,
+      "latencyMs": 350.32154200000014
+    },
+    {
+      "id": "ad_0015",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.8,
+      "inputTokens": 614,
+      "latencyMs": 311.0560839999998
+    },
+    {
+      "id": "ad_0015",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.63,
+      "inputTokens": 614,
+      "latencyMs": 289.8764580000002
+    },
+    {
+      "id": "ad_0016",
+      "variant": "raw",
+      "run": 0,
+      "expected": "pause",
+      "got": "scale",
+      "confidence": 0.25,
+      "inputTokens": 1200,
+      "latencyMs": 320.3751669999997
+    },
+    {
+      "id": "ad_0016",
+      "variant": "raw",
+      "run": 1,
+      "expected": "pause",
+      "got": "scale",
+      "confidence": 0.25,
+      "inputTokens": 1200,
+      "latencyMs": 327.72679199999993
+    },
+    {
+      "id": "ad_0016",
+      "variant": "raw",
+      "run": 2,
+      "expected": "pause",
+      "got": "scale",
+      "confidence": 0.23,
+      "inputTokens": 1200,
+      "latencyMs": 284.69883400000026
+    },
+    {
+      "id": "ad_0016",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.79,
+      "inputTokens": 614,
+      "latencyMs": 294.981542
+    },
+    {
+      "id": "ad_0016",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.71,
+      "inputTokens": 614,
+      "latencyMs": 285.8077079999998
+    },
+    {
+      "id": "ad_0016",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.68,
+      "inputTokens": 614,
+      "latencyMs": 315.11724999999933
+    },
+    {
+      "id": "ad_0017",
+      "variant": "raw",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.55,
+      "inputTokens": 1250,
+      "latencyMs": 316.9237500000004
+    },
+    {
+      "id": "ad_0017",
+      "variant": "raw",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.49,
+      "inputTokens": 1250,
+      "latencyMs": 301.0025840000003
+    },
+    {
+      "id": "ad_0017",
+      "variant": "raw",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.53,
+      "inputTokens": 1250,
+      "latencyMs": 301.5415419999995
+    },
+    {
+      "id": "ad_0017",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.48,
+      "inputTokens": 614,
+      "latencyMs": 305.9544999999998
+    },
+    {
+      "id": "ad_0017",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.64,
+      "inputTokens": 614,
+      "latencyMs": 417.6378749999999
+    },
+    {
+      "id": "ad_0017",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.75,
+      "inputTokens": 614,
+      "latencyMs": 300.99683400000004
+    },
+    {
+      "id": "ad_0018",
+      "variant": "raw",
+      "run": 0,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.99,
+      "inputTokens": 905,
+      "latencyMs": 363.7805830000002
+    },
+    {
+      "id": "ad_0018",
+      "variant": "raw",
+      "run": 1,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.97,
+      "inputTokens": 905,
+      "latencyMs": 282.033042
+    },
+    {
+      "id": "ad_0018",
+      "variant": "raw",
+      "run": 2,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.97,
+      "inputTokens": 905,
+      "latencyMs": 311.59416599999986
+    },
+    {
+      "id": "ad_0018",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 615,
+      "latencyMs": 298.87554199999977
+    },
+    {
+      "id": "ad_0018",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 615,
+      "latencyMs": 273.75333300000057
+    },
+    {
+      "id": "ad_0018",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 615,
+      "latencyMs": 283.79233399999976
+    },
+    {
+      "id": "ad_0019",
+      "variant": "raw",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.32,
+      "inputTokens": 1086,
+      "latencyMs": 294.69041599999946
+    },
+    {
+      "id": "ad_0019",
+      "variant": "raw",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.28,
+      "inputTokens": 1086,
+      "latencyMs": 334.0270419999997
+    },
+    {
+      "id": "ad_0019",
+      "variant": "raw",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.35,
+      "inputTokens": 1086,
+      "latencyMs": 300.49362500000007
+    },
+    {
+      "id": "ad_0019",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.67,
+      "inputTokens": 614,
+      "latencyMs": 326.4972090000001
+    },
+    {
+      "id": "ad_0019",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.67,
+      "inputTokens": 614,
+      "latencyMs": 313.6462499999998
+    },
+    {
+      "id": "ad_0019",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.64,
+      "inputTokens": 614,
+      "latencyMs": 297.80545900000016
+    },
+    {
+      "id": "ad_0020",
+      "variant": "raw",
+      "run": 0,
+      "expected": "retire",
+      "got": "pause",
+      "confidence": 0.12,
+      "inputTokens": 1477,
+      "latencyMs": 382.35812499999975
+    },
+    {
+      "id": "ad_0020",
+      "variant": "raw",
+      "run": 1,
+      "expected": "retire",
+      "got": "scale",
+      "confidence": 0.08,
+      "inputTokens": 1477,
+      "latencyMs": 352.96145799999977
+    },
+    {
+      "id": "ad_0020",
+      "variant": "raw",
+      "run": 2,
+      "expected": "retire",
+      "got": "pause",
+      "confidence": 0.12,
+      "inputTokens": 1477,
+      "latencyMs": 325.8473750000003
+    },
+    {
+      "id": "ad_0020",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.92,
+      "inputTokens": 614,
+      "latencyMs": 271.6137499999995
+    },
+    {
+      "id": "ad_0020",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.96,
+      "inputTokens": 614,
+      "latencyMs": 304.59029199999986
+    },
+    {
+      "id": "ad_0020",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.95,
+      "inputTokens": 614,
+      "latencyMs": 288.0108330000003
+    },
+    {
+      "id": "ad_0021",
+      "variant": "raw",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.53,
+      "inputTokens": 1494,
+      "latencyMs": 277.28520800000024
+    },
+    {
+      "id": "ad_0021",
+      "variant": "raw",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.52,
+      "inputTokens": 1494,
+      "latencyMs": 324.4211669999995
+    },
+    {
+      "id": "ad_0021",
+      "variant": "raw",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.49,
+      "inputTokens": 1494,
+      "latencyMs": 306.87116699999933
+    },
+    {
+      "id": "ad_0021",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.59,
+      "inputTokens": 614,
+      "latencyMs": 324.8937079999996
+    },
+    {
+      "id": "ad_0021",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.68,
+      "inputTokens": 614,
+      "latencyMs": 318.82025000000067
+    },
+    {
+      "id": "ad_0021",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.72,
+      "inputTokens": 614,
+      "latencyMs": 276.9987090000004
+    },
+    {
+      "id": "ad_0022",
+      "variant": "raw",
+      "run": 0,
+      "expected": "hold",
+      "got": "scale",
+      "confidence": 0.31,
+      "inputTokens": 1586,
+      "latencyMs": 409.8956250000001
+    },
+    {
+      "id": "ad_0022",
+      "variant": "raw",
+      "run": 1,
+      "expected": "hold",
+      "got": "scale",
+      "confidence": 0.23,
+      "inputTokens": 1586,
+      "latencyMs": 389.62608400000045
+    },
+    {
+      "id": "ad_0022",
+      "variant": "raw",
+      "run": 2,
+      "expected": "hold",
+      "got": "scale",
+      "confidence": 0.25,
+      "inputTokens": 1586,
+      "latencyMs": 365.9817499999999
+    },
+    {
+      "id": "ad_0022",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.95,
+      "inputTokens": 614,
+      "latencyMs": 346.61583399999927
+    },
+    {
+      "id": "ad_0022",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.97,
+      "inputTokens": 614,
+      "latencyMs": 302.70666699999947
+    },
+    {
+      "id": "ad_0022",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 0.96,
+      "inputTokens": 614,
+      "latencyMs": 333.9742919999999
+    },
+    {
+      "id": "ad_0023",
+      "variant": "raw",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.24,
+      "inputTokens": 1027,
+      "latencyMs": 371.5951249999998
+    },
+    {
+      "id": "ad_0023",
+      "variant": "raw",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.28,
+      "inputTokens": 1027,
+      "latencyMs": 308.7572919999993
+    },
+    {
+      "id": "ad_0023",
+      "variant": "raw",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.24,
+      "inputTokens": 1027,
+      "latencyMs": 339.1169579999996
+    },
+    {
+      "id": "ad_0023",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.61,
+      "inputTokens": 614,
+      "latencyMs": 357.4133330000004
+    },
+    {
+      "id": "ad_0023",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.77,
+      "inputTokens": 614,
+      "latencyMs": 320.08079199999975
+    },
+    {
+      "id": "ad_0023",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.67,
+      "inputTokens": 614,
+      "latencyMs": 366.2815839999994
+    },
+    {
+      "id": "ad_0024",
+      "variant": "raw",
+      "run": 0,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 864,
+      "latencyMs": 435.6618330000001
+    },
+    {
+      "id": "ad_0024",
+      "variant": "raw",
+      "run": 1,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 864,
+      "latencyMs": 413.0606250000001
+    },
+    {
+      "id": "ad_0024",
+      "variant": "raw",
+      "run": 2,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 864,
+      "latencyMs": 279.3287499999997
+    },
+    {
+      "id": "ad_0024",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 572,
+      "latencyMs": 351.04433400000016
+    },
+    {
+      "id": "ad_0024",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 572,
+      "latencyMs": 268.26695800000016
+    },
+    {
+      "id": "ad_0024",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "hold",
+      "got": "hold",
+      "confidence": 1,
+      "inputTokens": 572,
+      "latencyMs": 342.1832090000007
+    },
+    {
+      "id": "ad_0028",
+      "variant": "raw",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.19,
+      "inputTokens": 1081,
+      "latencyMs": 341.5734170000005
+    },
+    {
+      "id": "ad_0028",
+      "variant": "raw",
+      "run": 1,
+      "expected": "pause",
+      "got": "scale",
+      "confidence": 0.15,
+      "inputTokens": 1081,
+      "latencyMs": 360.074834
+    },
+    {
+      "id": "ad_0028",
+      "variant": "raw",
+      "run": 2,
+      "expected": "pause",
+      "got": "scale",
+      "confidence": 0.19,
+      "inputTokens": 1081,
+      "latencyMs": 341.4910830000008
+    },
+    {
+      "id": "ad_0028",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.61,
+      "inputTokens": 614,
+      "latencyMs": 352.87191600000006
+    },
+    {
+      "id": "ad_0028",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.72,
+      "inputTokens": 614,
+      "latencyMs": 309.83995799999957
+    },
+    {
+      "id": "ad_0028",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.51,
+      "inputTokens": 614,
+      "latencyMs": 310.189625
+    },
+    {
+      "id": "ad_0029",
+      "variant": "raw",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.17,
+      "inputTokens": 1086,
+      "latencyMs": 323.78208300000006
+    },
+    {
+      "id": "ad_0029",
+      "variant": "raw",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.16,
+      "inputTokens": 1086,
+      "latencyMs": 366.4692500000001
+    },
+    {
+      "id": "ad_0029",
+      "variant": "raw",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.23,
+      "inputTokens": 1086,
+      "latencyMs": 351.41320799999994
+    },
+    {
+      "id": "ad_0029",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.75,
+      "inputTokens": 614,
+      "latencyMs": 301.1551669999999
+    },
+    {
+      "id": "ad_0029",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.64,
+      "inputTokens": 614,
+      "latencyMs": 291.4387079999997
+    },
+    {
+      "id": "ad_0029",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "pause",
+      "got": "pause",
+      "confidence": 0.6,
+      "inputTokens": 614,
+      "latencyMs": 296.6897090000002
+    },
+    {
+      "id": "ad_0050",
+      "variant": "raw",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.39,
+      "inputTokens": 1497,
+      "latencyMs": 310.01858300000004
+    },
+    {
+      "id": "ad_0050",
+      "variant": "raw",
+      "run": 1,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.39,
+      "inputTokens": 1497,
+      "latencyMs": 326.22325
+    },
+    {
+      "id": "ad_0050",
+      "variant": "raw",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.41,
+      "inputTokens": 1497,
+      "latencyMs": 322.62012500000037
+    },
+    {
+      "id": "ad_0050",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.83,
+      "inputTokens": 614,
+      "latencyMs": 304.1163749999996
+    },
+    {
+      "id": "ad_0050",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.77,
+      "inputTokens": 614,
+      "latencyMs": 332.83495800000037
+    },
+    {
+      "id": "ad_0050",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.83,
+      "inputTokens": 614,
+      "latencyMs": 311.05975000000035
+    },
+    {
+      "id": "ad_0067",
+      "variant": "raw",
+      "run": 0,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.12,
+      "inputTokens": 1262,
+      "latencyMs": 355.630083
+    },
+    {
+      "id": "ad_0067",
+      "variant": "raw",
+      "run": 1,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.13,
+      "inputTokens": 1262,
+      "latencyMs": 331.9227919999994
+    },
+    {
+      "id": "ad_0067",
+      "variant": "raw",
+      "run": 2,
+      "expected": "retire",
+      "got": "pause",
+      "confidence": 0.15,
+      "inputTokens": 1262,
+      "latencyMs": 315.13595799999985
+    },
+    {
+      "id": "ad_0067",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.91,
+      "inputTokens": 614,
+      "latencyMs": 373.1314590000002
+    },
+    {
+      "id": "ad_0067",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.96,
+      "inputTokens": 614,
+      "latencyMs": 319.9334580000004
+    },
+    {
+      "id": "ad_0067",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.95,
+      "inputTokens": 614,
+      "latencyMs": 321.14429199999995
+    },
+    {
+      "id": "ad_0086",
+      "variant": "raw",
+      "run": 0,
+      "expected": "retire",
+      "got": "scale",
+      "confidence": 0.08,
+      "inputTokens": 1610,
+      "latencyMs": 334.91308299999946
+    },
+    {
+      "id": "ad_0086",
+      "variant": "raw",
+      "run": 1,
+      "expected": "retire",
+      "got": "scale",
+      "confidence": 0.08,
+      "inputTokens": 1610,
+      "latencyMs": 315.3552499999996
+    },
+    {
+      "id": "ad_0086",
+      "variant": "raw",
+      "run": 2,
+      "expected": "retire",
+      "got": "scale",
+      "confidence": 0.09,
+      "inputTokens": 1610,
+      "latencyMs": 315.32337499999994
+    },
+    {
+      "id": "ad_0086",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.53,
+      "inputTokens": 614,
+      "latencyMs": 316.72712500000034
+    },
+    {
+      "id": "ad_0086",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.68,
+      "inputTokens": 614,
+      "latencyMs": 320.19825000000037
+    },
+    {
+      "id": "ad_0086",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.6,
+      "inputTokens": 614,
+      "latencyMs": 343.96658300000036
+    },
+    {
+      "id": "ad_0089",
+      "variant": "raw",
+      "run": 0,
+      "expected": "retire",
+      "got": "pause",
+      "confidence": 0.17,
+      "inputTokens": 1247,
+      "latencyMs": 324.6214579999996
+    },
+    {
+      "id": "ad_0089",
+      "variant": "raw",
+      "run": 1,
+      "expected": "retire",
+      "got": "pause",
+      "confidence": 0.16,
+      "inputTokens": 1247,
+      "latencyMs": 298.1597090000005
+    },
+    {
+      "id": "ad_0089",
+      "variant": "raw",
+      "run": 2,
+      "expected": "retire",
+      "got": "pause",
+      "confidence": 0.07,
+      "inputTokens": 1247,
+      "latencyMs": 398.88979199999994
+    },
+    {
+      "id": "ad_0089",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.95,
+      "inputTokens": 614,
+      "latencyMs": 395.84283400000004
+    },
+    {
+      "id": "ad_0089",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.92,
+      "inputTokens": 614,
+      "latencyMs": 373.0687080000007
+    },
+    {
+      "id": "ad_0089",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.95,
+      "inputTokens": 614,
+      "latencyMs": 346.53762499999993
+    },
+    {
+      "id": "ad_0091",
+      "variant": "raw",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.29,
+      "inputTokens": 1145,
+      "latencyMs": 315.5807079999995
+    },
+    {
+      "id": "ad_0091",
+      "variant": "raw",
+      "run": 1,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.37,
+      "inputTokens": 1145,
+      "latencyMs": 320.20087500000045
+    },
+    {
+      "id": "ad_0091",
+      "variant": "raw",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.31,
+      "inputTokens": 1145,
+      "latencyMs": 323.05154200000015
+    },
+    {
+      "id": "ad_0091",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.84,
+      "inputTokens": 614,
+      "latencyMs": 342.65237499999967
+    },
+    {
+      "id": "ad_0091",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.77,
+      "inputTokens": 614,
+      "latencyMs": 331.013833
+    },
+    {
+      "id": "ad_0091",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.77,
+      "inputTokens": 614,
+      "latencyMs": 362.53162500000053
+    },
+    {
+      "id": "ad_0092",
+      "variant": "raw",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.35,
+      "inputTokens": 1202,
+      "latencyMs": 327.20358399999986
+    },
+    {
+      "id": "ad_0092",
+      "variant": "raw",
+      "run": 1,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.25,
+      "inputTokens": 1202,
+      "latencyMs": 429.15791699999954
+    },
+    {
+      "id": "ad_0092",
+      "variant": "raw",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.28,
+      "inputTokens": 1202,
+      "latencyMs": 332.0583750000005
+    },
+    {
+      "id": "ad_0092",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.87,
+      "inputTokens": 614,
+      "latencyMs": 405.25895799999944
+    },
+    {
+      "id": "ad_0092",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.83,
+      "inputTokens": 614,
+      "latencyMs": 384.75866600000063
+    },
+    {
+      "id": "ad_0092",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.83,
+      "inputTokens": 614,
+      "latencyMs": 323.2630829999998
+    },
+    {
+      "id": "ad_0097",
+      "variant": "raw",
+      "run": 0,
+      "expected": "retire",
+      "got": "scale",
+      "confidence": 0.23,
+      "inputTokens": 1384,
+      "latencyMs": 375.40229199999976
+    },
+    {
+      "id": "ad_0097",
+      "variant": "raw",
+      "run": 1,
+      "expected": "retire",
+      "got": "scale",
+      "confidence": 0.2,
+      "inputTokens": 1384,
+      "latencyMs": 328.0184159999999
+    },
+    {
+      "id": "ad_0097",
+      "variant": "raw",
+      "run": 2,
+      "expected": "retire",
+      "got": "scale",
+      "confidence": 0.23,
+      "inputTokens": 1384,
+      "latencyMs": 334.49966700000004
+    },
+    {
+      "id": "ad_0097",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.75,
+      "inputTokens": 614,
+      "latencyMs": 369.8227079999997
+    },
+    {
+      "id": "ad_0097",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.63,
+      "inputTokens": 614,
+      "latencyMs": 416.46983400000045
+    },
+    {
+      "id": "ad_0097",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.63,
+      "inputTokens": 614,
+      "latencyMs": 317.1897910000007
+    },
+    {
+      "id": "ad_0098",
+      "variant": "raw",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.28,
+      "inputTokens": 1553,
+      "latencyMs": 361.32704100000046
+    },
+    {
+      "id": "ad_0098",
+      "variant": "raw",
+      "run": 1,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.21,
+      "inputTokens": 1553,
+      "latencyMs": 336.1269170000005
+    },
+    {
+      "id": "ad_0098",
+      "variant": "raw",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.31,
+      "inputTokens": 1553,
+      "latencyMs": 390.3307500000001
+    },
+    {
+      "id": "ad_0098",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.83,
+      "inputTokens": 614,
+      "latencyMs": 376.27337499999885
+    },
+    {
+      "id": "ad_0098",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.83,
+      "inputTokens": 614,
+      "latencyMs": 399.7897089999997
+    },
+    {
+      "id": "ad_0098",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.8,
+      "inputTokens": 614,
+      "latencyMs": 373.8707080000004
+    },
+    {
+      "id": "ad_0107",
+      "variant": "raw",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.28,
+      "inputTokens": 1255,
+      "latencyMs": 371.2904580000013
+    },
+    {
+      "id": "ad_0107",
+      "variant": "raw",
+      "run": 1,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.28,
+      "inputTokens": 1255,
+      "latencyMs": 357.6557499999999
+    },
+    {
+      "id": "ad_0107",
+      "variant": "raw",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.4,
+      "inputTokens": 1255,
+      "latencyMs": 375.25583299999926
+    },
+    {
+      "id": "ad_0107",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.85,
+      "inputTokens": 614,
+      "latencyMs": 323.4498340000009
+    },
+    {
+      "id": "ad_0107",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.81,
+      "inputTokens": 614,
+      "latencyMs": 326.93083300000035
+    },
+    {
+      "id": "ad_0107",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.85,
+      "inputTokens": 614,
+      "latencyMs": 506.80379099999845
+    },
+    {
+      "id": "ad_0110",
+      "variant": "raw",
+      "run": 0,
+      "expected": "retire",
+      "got": "pause",
+      "confidence": 0.23,
+      "inputTokens": 1194,
+      "latencyMs": 472.0792500000007
+    },
+    {
+      "id": "ad_0110",
+      "variant": "raw",
+      "run": 1,
+      "expected": "retire",
+      "got": "pause",
+      "confidence": 0.28,
+      "inputTokens": 1194,
+      "latencyMs": 358.9625420000011
+    },
+    {
+      "id": "ad_0110",
+      "variant": "raw",
+      "run": 2,
+      "expected": "retire",
+      "got": "pause",
+      "confidence": 0.27,
+      "inputTokens": 1194,
+      "latencyMs": 511.30845899999986
+    },
+    {
+      "id": "ad_0110",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.92,
+      "inputTokens": 614,
+      "latencyMs": 398.6189169999998
+    },
+    {
+      "id": "ad_0110",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.95,
+      "inputTokens": 614,
+      "latencyMs": 360.94533299999966
+    },
+    {
+      "id": "ad_0110",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.95,
+      "inputTokens": 614,
+      "latencyMs": 359.2411660000016
+    },
+    {
+      "id": "ad_0123",
+      "variant": "raw",
+      "run": 0,
+      "expected": "retire",
+      "got": "pause",
+      "confidence": 0.41,
+      "inputTokens": 1297,
+      "latencyMs": 334.27629200000047
+    },
+    {
+      "id": "ad_0123",
+      "variant": "raw",
+      "run": 1,
+      "expected": "retire",
+      "got": "pause",
+      "confidence": 0.4,
+      "inputTokens": 1297,
+      "latencyMs": 379.68070799999987
+    },
+    {
+      "id": "ad_0123",
+      "variant": "raw",
+      "run": 2,
+      "expected": "retire",
+      "got": "pause",
+      "confidence": 0.44,
+      "inputTokens": 1297,
+      "latencyMs": 327.58245800000077
+    },
+    {
+      "id": "ad_0123",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.92,
+      "inputTokens": 614,
+      "latencyMs": 313.0623749999995
+    },
+    {
+      "id": "ad_0123",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.95,
+      "inputTokens": 614,
+      "latencyMs": 344.22933300000113
+    },
+    {
+      "id": "ad_0123",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.91,
+      "inputTokens": 614,
+      "latencyMs": 307.6582920000001
+    },
+    {
+      "id": "ad_0136",
+      "variant": "raw",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.4,
+      "inputTokens": 1504,
+      "latencyMs": 365.37212499999987
+    },
+    {
+      "id": "ad_0136",
+      "variant": "raw",
+      "run": 1,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.4,
+      "inputTokens": 1504,
+      "latencyMs": 387.6034579999996
+    },
+    {
+      "id": "ad_0136",
+      "variant": "raw",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.41,
+      "inputTokens": 1504,
+      "latencyMs": 382.4445420000011
+    },
+    {
+      "id": "ad_0136",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.88,
+      "inputTokens": 614,
+      "latencyMs": 337.5149169999986
+    },
+    {
+      "id": "ad_0136",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.85,
+      "inputTokens": 614,
+      "latencyMs": 367.16508299999987
+    },
+    {
+      "id": "ad_0136",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.83,
+      "inputTokens": 614,
+      "latencyMs": 277.6011669999989
+    },
+    {
+      "id": "ad_0144",
+      "variant": "raw",
+      "run": 0,
+      "expected": "scale",
+      "got": "pause",
+      "confidence": 0.33,
+      "inputTokens": 1602,
+      "latencyMs": 345.48279099999854
+    },
+    {
+      "id": "ad_0144",
+      "variant": "raw",
+      "run": 1,
+      "expected": "scale",
+      "got": "pause",
+      "confidence": 0.27,
+      "inputTokens": 1602,
+      "latencyMs": 358.88858400000026
+    },
+    {
+      "id": "ad_0144",
+      "variant": "raw",
+      "run": 2,
+      "expected": "scale",
+      "got": "pause",
+      "confidence": 0.28,
+      "inputTokens": 1602,
+      "latencyMs": 332.50274999999965
+    },
+    {
+      "id": "ad_0144",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.83,
+      "inputTokens": 614,
+      "latencyMs": 314.77241700000013
+    },
+    {
+      "id": "ad_0144",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.83,
+      "inputTokens": 614,
+      "latencyMs": 295.0801670000001
+    },
+    {
+      "id": "ad_0144",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.84,
+      "inputTokens": 614,
+      "latencyMs": 286.51237500000025
+    },
+    {
+      "id": "ad_0146",
+      "variant": "raw",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.39,
+      "inputTokens": 1319,
+      "latencyMs": 321.156167000001
+    },
+    {
+      "id": "ad_0146",
+      "variant": "raw",
+      "run": 1,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.45,
+      "inputTokens": 1319,
+      "latencyMs": 391.10220800000025
+    },
+    {
+      "id": "ad_0146",
+      "variant": "raw",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.41,
+      "inputTokens": 1319,
+      "latencyMs": 356.49254199999996
+    },
+    {
+      "id": "ad_0146",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.88,
+      "inputTokens": 614,
+      "latencyMs": 342.47137499999917
+    },
+    {
+      "id": "ad_0146",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.85,
+      "inputTokens": 614,
+      "latencyMs": 324.48133400000006
+    },
+    {
+      "id": "ad_0146",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.83,
+      "inputTokens": 614,
+      "latencyMs": 289.8190829999985
+    },
+    {
+      "id": "ad_0153",
+      "variant": "raw",
+      "run": 0,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.24,
+      "inputTokens": 1323,
+      "latencyMs": 452.192583
+    },
+    {
+      "id": "ad_0153",
+      "variant": "raw",
+      "run": 1,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.24,
+      "inputTokens": 1323,
+      "latencyMs": 287.16400000000067
+    },
+    {
+      "id": "ad_0153",
+      "variant": "raw",
+      "run": 2,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.19,
+      "inputTokens": 1323,
+      "latencyMs": 292.61754199999996
+    },
+    {
+      "id": "ad_0153",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.97,
+      "inputTokens": 614,
+      "latencyMs": 303.3245829999996
+    },
+    {
+      "id": "ad_0153",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.95,
+      "inputTokens": 614,
+      "latencyMs": 338.84745799999837
+    },
+    {
+      "id": "ad_0153",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.93,
+      "inputTokens": 614,
+      "latencyMs": 318.3845419999998
+    },
+    {
+      "id": "ad_0157",
+      "variant": "raw",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.32,
+      "inputTokens": 1247,
+      "latencyMs": 380.5065830000003
+    },
+    {
+      "id": "ad_0157",
+      "variant": "raw",
+      "run": 1,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.21,
+      "inputTokens": 1247,
+      "latencyMs": 298.2234579999986
+    },
+    {
+      "id": "ad_0157",
+      "variant": "raw",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.25,
+      "inputTokens": 1247,
+      "latencyMs": 392.14300000000003
+    },
+    {
+      "id": "ad_0157",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.8,
+      "inputTokens": 614,
+      "latencyMs": 350.6154999999999
+    },
+    {
+      "id": "ad_0157",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.84,
+      "inputTokens": 614,
+      "latencyMs": 286.00237500000003
+    },
+    {
+      "id": "ad_0157",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.81,
+      "inputTokens": 614,
+      "latencyMs": 315.9487500000014
+    },
+    {
+      "id": "ad_0158",
+      "variant": "raw",
+      "run": 0,
+      "expected": "retire",
+      "got": "scale",
+      "confidence": 0.15,
+      "inputTokens": 1653,
+      "latencyMs": 298.63574999999946
+    },
+    {
+      "id": "ad_0158",
+      "variant": "raw",
+      "run": 1,
+      "expected": "retire",
+      "got": "scale",
+      "confidence": 0.15,
+      "inputTokens": 1653,
+      "latencyMs": 295.00837499999943
+    },
+    {
+      "id": "ad_0158",
+      "variant": "raw",
+      "run": 2,
+      "expected": "retire",
+      "got": "scale",
+      "confidence": 0.16,
+      "inputTokens": 1653,
+      "latencyMs": 284.485584
+    },
+    {
+      "id": "ad_0158",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.95,
+      "inputTokens": 614,
+      "latencyMs": 274.825417
+    },
+    {
+      "id": "ad_0158",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.92,
+      "inputTokens": 614,
+      "latencyMs": 292.2262090000004
+    },
+    {
+      "id": "ad_0158",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.93,
+      "inputTokens": 614,
+      "latencyMs": 275.78899999999885
+    },
+    {
+      "id": "ad_0166",
+      "variant": "raw",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.17,
+      "inputTokens": 1082,
+      "latencyMs": 270.2423749999998
+    },
+    {
+      "id": "ad_0166",
+      "variant": "raw",
+      "run": 1,
+      "expected": "scale",
+      "got": "pause",
+      "confidence": 0.15,
+      "inputTokens": 1082,
+      "latencyMs": 280.15337499999987
+    },
+    {
+      "id": "ad_0166",
+      "variant": "raw",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.19,
+      "inputTokens": 1082,
+      "latencyMs": 278.6227920000001
+    },
+    {
+      "id": "ad_0166",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.84,
+      "inputTokens": 614,
+      "latencyMs": 294.0577920000014
+    },
+    {
+      "id": "ad_0166",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.83,
+      "inputTokens": 614,
+      "latencyMs": 274.9450830000005
+    },
+    {
+      "id": "ad_0166",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.84,
+      "inputTokens": 614,
+      "latencyMs": 271.7658329999995
+    },
+    {
+      "id": "ad_0170",
+      "variant": "raw",
+      "run": 0,
+      "expected": "scale",
+      "got": "pause",
+      "confidence": 0.21,
+      "inputTokens": 1137,
+      "latencyMs": 300.07979199999863
+    },
+    {
+      "id": "ad_0170",
+      "variant": "raw",
+      "run": 1,
+      "expected": "scale",
+      "got": "pause",
+      "confidence": 0.2,
+      "inputTokens": 1137,
+      "latencyMs": 274.81424999999945
+    },
+    {
+      "id": "ad_0170",
+      "variant": "raw",
+      "run": 2,
+      "expected": "scale",
+      "got": "pause",
+      "confidence": 0.19,
+      "inputTokens": 1137,
+      "latencyMs": 302.39899999999943
+    },
+    {
+      "id": "ad_0170",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.87,
+      "inputTokens": 614,
+      "latencyMs": 292.5669170000001
+    },
+    {
+      "id": "ad_0170",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.81,
+      "inputTokens": 614,
+      "latencyMs": 325.4462079999994
+    },
+    {
+      "id": "ad_0170",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.81,
+      "inputTokens": 614,
+      "latencyMs": 317.251542
+    },
+    {
+      "id": "ad_0178",
+      "variant": "raw",
+      "run": 0,
+      "expected": "retire",
+      "got": "pause",
+      "confidence": 0.25,
+      "inputTokens": 1484,
+      "latencyMs": 274.7875830000012
+    },
+    {
+      "id": "ad_0178",
+      "variant": "raw",
+      "run": 1,
+      "expected": "retire",
+      "got": "pause",
+      "confidence": 0.41,
+      "inputTokens": 1484,
+      "latencyMs": 295.2560830000002
+    },
+    {
+      "id": "ad_0178",
+      "variant": "raw",
+      "run": 2,
+      "expected": "retire",
+      "got": "pause",
+      "confidence": 0.2,
+      "inputTokens": 1484,
+      "latencyMs": 333.4654999999984
+    },
+    {
+      "id": "ad_0178",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.88,
+      "inputTokens": 614,
+      "latencyMs": 331.38458300000093
+    },
+    {
+      "id": "ad_0178",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.93,
+      "inputTokens": 614,
+      "latencyMs": 330.282541999999
+    },
+    {
+      "id": "ad_0178",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.93,
+      "inputTokens": 614,
+      "latencyMs": 382.3518750000003
+    },
+    {
+      "id": "ad_0180",
+      "variant": "raw",
+      "run": 0,
+      "expected": "scale",
+      "got": "pause",
+      "confidence": 0.35,
+      "inputTokens": 1361,
+      "latencyMs": 371.4081669999996
+    },
+    {
+      "id": "ad_0180",
+      "variant": "raw",
+      "run": 1,
+      "expected": "scale",
+      "got": "pause",
+      "confidence": 0.33,
+      "inputTokens": 1361,
+      "latencyMs": 339.61783300000025
+    },
+    {
+      "id": "ad_0180",
+      "variant": "raw",
+      "run": 2,
+      "expected": "scale",
+      "got": "pause",
+      "confidence": 0.27,
+      "inputTokens": 1361,
+      "latencyMs": 339.47662500000115
+    },
+    {
+      "id": "ad_0180",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.85,
+      "inputTokens": 614,
+      "latencyMs": 327.75637500000084
+    },
+    {
+      "id": "ad_0180",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.88,
+      "inputTokens": 614,
+      "latencyMs": 306.76145800000086
+    },
+    {
+      "id": "ad_0180",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "scale",
+      "got": "scale",
+      "confidence": 0.81,
+      "inputTokens": 614,
+      "latencyMs": 294.29454199999964
+    },
+    {
+      "id": "ad_0196",
+      "variant": "raw",
+      "run": 0,
+      "expected": "retire",
+      "got": "scale",
+      "confidence": 0.15,
+      "inputTokens": 1322,
+      "latencyMs": 309.57320900000013
+    },
+    {
+      "id": "ad_0196",
+      "variant": "raw",
+      "run": 1,
+      "expected": "retire",
+      "got": "pause",
+      "confidence": 0.15,
+      "inputTokens": 1322,
+      "latencyMs": 299.2759589999987
+    },
+    {
+      "id": "ad_0196",
+      "variant": "raw",
+      "run": 2,
+      "expected": "retire",
+      "got": "pause",
+      "confidence": 0.19,
+      "inputTokens": 1322,
+      "latencyMs": 292.4411660000005
+    },
+    {
+      "id": "ad_0196",
+      "variant": "jev-state",
+      "run": 0,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.95,
+      "inputTokens": 614,
+      "latencyMs": 295.2772499999992
+    },
+    {
+      "id": "ad_0196",
+      "variant": "jev-state",
+      "run": 1,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.96,
+      "inputTokens": 614,
+      "latencyMs": 280.54099999999926
+    },
+    {
+      "id": "ad_0196",
+      "variant": "jev-state",
+      "run": 2,
+      "expected": "retire",
+      "got": "retire",
+      "confidence": 0.96,
+      "inputTokens": 614,
+      "latencyMs": 283.85120800000004
+    }
+  ]
+}
