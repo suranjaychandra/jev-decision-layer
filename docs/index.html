@@ -213,9 +213,12 @@ function renderStats() {
     stat("Wrong decisions executed", r.wrongExecuted, j.wrongExecuted) +
     stat(`Human review (conf < ${s.minConfidence})`, pct(r.humanReviewRate), pct(j.humanReviewRate)) +
     stat("Avg input tokens", Math.round(r.avgInputTokens), Math.round(j.avgInputTokens));
+  // Count only benchmark cases; a featured case (the post's example) was recorded separately.
+  const benchmarked = s.cases.filter((c) => !c.featured).length;
+  const extra = s.cases.length - benchmarked ? `, plus the example from Uplane's post` : "";
   document.getElementById("replay").innerHTML =
     `Replaying Jev's recorded answers from the test-set benchmark: model <b>${esc(s.run.model)}</b>, ${s.run.date}, seed ${s.run.seed}, ` +
-    `${s.cases.length} ${s.unit}, ${s.run.reruns} runs each. No API key, no new calls. Hard limits are applied in code before Jev sees the question.`;
+    `${benchmarked} ${s.unit}, ${s.run.reruns} runs each${extra}. No API key, no new calls. Hard limits are applied in code before Jev sees the question.`;
 }
 
 function renderFilters() {

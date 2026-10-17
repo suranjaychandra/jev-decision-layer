@@ -53,7 +53,7 @@ const meta = (saved: Saved) => ({ date: saved.date, model: saved.model, seed: sa
 // Scene 1: generated customers from the test set, plus the post's example first if it was recorded.
 const nbaSaved = load("results/nba.json");
 const nbaAnswers = answersById(nbaSaved);
-const nbaCases = makeCustomers(nbaSaved.perAction, nbaSaved.seed).map((c) => ({
+const nbaCases: { featured?: boolean; [key: string]: unknown }[] = makeCustomers(nbaSaved.perAction, nbaSaved.seed).map((c) => ({
   id: c.raw.customerId,
   summary: customerSummary(c.raw),
   expected: c.expected,
@@ -68,7 +68,9 @@ if (existsSync("results/nba-example.json")) {
   const raw = blogExample();
   nbaCases.unshift({
     id: raw.customerId,
-    summary: `The example from Uplane's post. ${customerSummary(raw)}`,
+    // Marked so the page can say it is extra: it was recorded separately and is not in the benchmark numbers.
+    featured: true,
+    summary: `The example from Uplane's post (recorded separately, not in the benchmark numbers). ${customerSummary(raw)}`,
     expected: policy(raw),
     options: nbaState.actionQuestion(raw).ids,
     blocked: blockedForCustomer(raw),
