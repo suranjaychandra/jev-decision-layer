@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Decision Layer · Jev + jev-state</title>
-<meta name="description" content="Replay of a marketing decision layer built with Jev and jev-state: next best action and budget steering, raw state vs jev-state, with hard limits in code and human review." />
+<title>Tacet · decision layer</title>
+<meta name="description" content="Tacet, a marketing decision layer that knows when to stay silent, built with Jev and jev-state. Replay of next best action and budget steering, raw state vs jev-state, with hard limits in code and human review." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=VT323&display=swap" rel="stylesheet" />
@@ -123,7 +123,7 @@
 <header>
   <div class="wrap">
     <div class="top">
-      <div class="brand">DECISION_LAYER<small>built with Jev + jev-state</small></div>
+      <div class="brand">TACET<small>a decision layer that knows when to stay silent · built with Jev + jev-state</small></div>
       <nav class="links">
         <a href="https://github.com/suranjaychandra/jev-decision-layer">Code</a>
         <a href="https://github.com/suranjaychandra/jev-state">jev-state</a>
@@ -218,7 +218,7 @@ function renderStats() {
   const extra = s.cases.length - benchmarked ? `, plus the example from Uplane's post` : "";
   document.getElementById("replay").innerHTML =
     `Replaying Jev's recorded answers from the test-set benchmark: model <b>${esc(s.run.model)}</b>, ${s.run.date}, seed ${s.run.seed}, ` +
-    `${benchmarked} ${s.unit}, ${s.run.reruns} runs each${extra}. No API key, no new calls. Hard limits are applied in code before Jev sees the question.`;
+    `${benchmarked} ${s.unit}, ${s.run.reruns} runs each${extra}. No API key, no new calls. Tacet removes actions blocked by hard limits before Jev sees the question.`;
 }
 
 function renderFilters() {

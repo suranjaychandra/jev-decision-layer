@@ -1,10 +1,14 @@
-# jev-decision-layer
+# Tacet
 
-A marketing decision layer built with [Jev](https://typesafe.ai), TypeSafe AI's decision model, and [jev-state](https://github.com/suranjaychandra/jev-state). It follows the four jobs described in Uplane's post [Beyond the Campaign: Building a Decision Layer for Customer Engagement](https://uplane.com/blogs/continuous-engagement-segments-of-one/): notice, remember, **choose one action or none**, and learn.
+**A marketing decision layer that knows when to stay silent.** Built with [Jev](https://typesafe.ai), TypeSafe AI's decision model, and [jev-state](https://github.com/suranjaychandra/jev-state).
+
+Tacet follows the four jobs described in Uplane's post [Beyond the Campaign: Building a Decision Layer for Customer Engagement](https://uplane.com/blogs/continuous-engagement-segments-of-one/): notice, remember, **choose one action or none**, and learn. Tacet does the counting, date math, and hard limits in code; Jev chooses among the actions Tacet allows; and a person reviews any choice Jev isn't sure about.
+
+> **Why "Tacet":** in sheet music, *tacet* means "stay silent for this part". The post argues that "the right to send nothing is what separates continuous engagement from continuous interruption", and waiting is a real action here. With raw state, 27 of the model's 35 mistakes contacted a customer who should have been left alone; with Tacet, waiting was right every time.
 
 [![CI](https://github.com/suranjaychandra/jev-decision-layer/actions/workflows/ci.yml/badge.svg)](https://github.com/suranjaychandra/jev-decision-layer/actions/workflows/ci.yml)
 
-**[Open the dashboard](https://suranjaychandra.github.io/jev-decision-layer/)**: every test-set case side by side, raw vs jev-state, with the options Jev saw, what the hard limits blocked and why, and Jev's recorded answers. It replays saved answers, so no API key is needed.
+**[Open the Tacet dashboard](https://suranjaychandra.github.io/jev-decision-layer/)**: every test-set case side by side, raw vs jev-state, with the options Jev saw, what the hard limits blocked and why, and Jev's recorded answers. It replays saved answers, so no API key is needed.
 
 | Scene | Accuracy, raw → jev-state | Wrong decisions executed automatically | Input tokens |
 |---|---|---|---|
@@ -23,7 +27,7 @@ One journey, a mobile operator's contract renewal. For each customer, the system
 | `social_coverage_proof` | Show coverage proof in paid social (no direct contact) |
 | `wait` | Do nothing now |
 
-**Hard limits stay in code.** Consent per channel and a cap of two emails per rolling 7 days remove actions before Jev sees the question, so Jev can only choose among allowed actions. Service and waiting are always allowed.
+**Hard limits stay in code.** Tacet removes actions blocked by consent or by a cap of two emails per rolling 7 days before Jev sees the question, so Jev can only choose among allowed actions. Service and waiting are always allowed.
 
 **Jev chooses among what's left**, with [`pick()`](https://github.com/suranjaychandra/jev-state#pickinstructions-items--label-describe-none-) from jev-state. Below 60% confidence, the decision goes to a person instead.
 

@@ -2,7 +2,7 @@
   "name": "jev-decision-layer",
   "version": "0.0.0",
   "private": true,
-  "description": "A marketing decision layer built with Jev and jev-state: next best action and budget steering, with a raw vs jev-state benchmark.",
+  "description": "Tacet: a marketing decision layer that knows when to stay silent. Next best action and budget steering, built with Jev and jev-state, measured raw vs jev-state.",
   "license": "MIT",
   "author": "Suranjay Kumar",
   "repository": {
