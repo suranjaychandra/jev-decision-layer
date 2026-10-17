@@ -4,7 +4,7 @@
  * Why synthetic: no real ad account is needed or used, and anyone can reproduce the results.
  */
 import { mulberry32, randomTools } from "../rng.js";
-import { ACTIONS, type Action, type RawAd, policy } from "./steering.js";
+import { ACTIONS, type Action, type RawAd, policy, signals } from "./steering.js";
 
 /** The last reporting day in every case. A fixed date keeps every run identical. */
 const LAST_DAY = Date.UTC(2026, 9, 12);
@@ -172,3 +172,16 @@ export function makeCases(perAction = 12, seed = 42): Case[] {
   }
   return out;
 }
+
+/** A one-line human summary of an ad, so the dashboard and logs are readable without the raw rows. */
+export function summary(ad: RawAd): string {
+  const s = signals(ad);
+  const money = (x: number) => `$${x.toLocaleString("en-US", { maximumFractionDigits: 0 })}`;
+  const ctr = (days: RawAd["daily"]) => {
+    const imp = days.reduce((a, d) => a + d.impressions, 0);
+    return `${((days.reduce((a, d) => a + d.clicks, 0) / (imp || 1)) * 100).toFixed(1)}%`;
+  };
+  const cpa = s.conversions === 0 ? "no conversions" : `${money(s.spend / s.conversions)} each`;
+  return `${s.days} days, ${money(s.spend)} spent, ${s.conversions} conversions (${cpa}, target ${money(ad.targetCpa)}), click rate ${ctr(ad.daily.slice(0, 3))} → ${ctr(ad.daily.slice(-3))}, ${ad.bucket}`;
+}
+

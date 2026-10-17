@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Decision Layer · Jev + jev-state</title>
+<meta name="description" content="Replay of a marketing decision layer built with Jev and jev-state: next best action and budget steering, raw state vs jev-state, with hard limits in code and human review." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=VT323&display=swap" rel="stylesheet" />
+<style>
+  /* The same palette and fonts as the jev-state playground and the Two Bots game, so the three read as one family. */
+  :root {
+    --pink: #f386a1;
+    --pink-soft: #f9c3d1;
+    --ink: #1e1e1e;
+    --paper: #fefefe;
+    --grey: #dedede;
+    --muted: #5d5d5d;
+    --good: #1f7a3a;
+    --bad: #c2283d;
+    --warn: #8a5a00;
+    --grotesk: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    --pixel: "VT323", "IBM Plex Mono", monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--mono); font-size: 14px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  button { font: inherit; color: inherit; }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+  header { background: var(--pink); border-bottom: 2px solid var(--ink); }
+  .top { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; justify-content: space-between; padding: 18px 0 14px; }
+  .brand { font-family: var(--pixel); font-size: 40px; line-height: 1; letter-spacing: .02em; }
+  .brand small { font-family: var(--grotesk); font-size: 15px; letter-spacing: 0; margin-left: 10px; }
+  .links { font-family: var(--grotesk); font-size: 15px; display: flex; gap: 18px; }
+  .replay { font-size: 12.5px; padding: 0 0 14px; max-width: 900px; }
+
+  .tabs { display: flex; gap: 0; margin-top: 18px; border-bottom: 2px solid var(--ink); }
+  .tab { background: none; border: 2px solid var(--ink); border-bottom: none; padding: 8px 16px; cursor: pointer; font-family: var(--pixel); font-size: 22px; margin-right: -2px; }
+  .tab[aria-selected="true"] { background: var(--ink); color: var(--paper); }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); border: 2px solid var(--ink); border-top: none; }
+  .stat { padding: 10px 14px; border-right: 2px solid var(--ink); }
+  .stat:last-child { border-right: none; }
+  .stat .label { font-size: 11.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  .stat .value { font-family: var(--pixel); font-size: 30px; line-height: 1.1; }
+  .stat .value b { color: var(--good); font-weight: normal; }
+
+  .main { display: grid; grid-template-columns: 300px 1fr; gap: 20px; margin: 20px auto 40px; }
+  .list { border: 2px solid var(--ink); align-self: start; position: sticky; top: 12px; }
+  .filters { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px; border-bottom: 2px solid var(--ink); background: var(--pink-soft); }
+  .filter { border: 1.5px solid var(--ink); background: var(--paper); padding: 2px 8px; cursor: pointer; font-size: 12px; }
+  .filter[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  .items { max-height: 70vh; overflow: auto; }
+  .item { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; width: 100%; text-align: left; border: none; border-bottom: 1px solid var(--grey); background: none; padding: 8px 10px; cursor: pointer; }
+  .item:hover { background: #fff3f6; }
+  .item[aria-current="true"] { background: var(--pink-soft); }
+  .item .id { font-weight: 600; }
+  .item .exp { grid-column: 1 / -1; font-size: 12px; color: var(--muted); }
+  .marks { display: flex; gap: 4px; font-size: 12px; }
+  .mark { border: 1.5px solid currentColor; padding: 0 4px; }
+  .ok { color: var(--good); }
+  .no { color: var(--bad); }
+  .rv { color: var(--warn); }
+  .empty { padding: 14px 10px; color: var(--muted); }
+
+  .detail h2 { font-family: var(--grotesk); font-weight: 600; font-size: 26px; letter-spacing: -0.02em; margin: 0; }
+  .detail .sum { margin: 4px 0 12px; color: var(--muted); }
+  .expected { display: inline-block; background: var(--ink); color: var(--paper); padding: 0 8px; margin-left: 8px; font-family: var(--mono); font-size: 14px; vertical-align: middle; }
+  .row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 6px 0; }
+  .row .k { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); min-width: 120px; }
+  .chip { border: 1.5px solid var(--ink); padding: 0 6px; font-size: 12.5px; }
+  .chip.blocked { border-style: dashed; color: var(--muted); text-decoration: line-through; }
+  .why { font-size: 12.5px; color: var(--muted); }
+  .lock { background: #fff8e6; border: 2px solid var(--ink); padding: 8px 12px; margin: 10px 0 14px; }
+  .lock b { font-family: var(--pixel); font-size: 20px; font-weight: normal; }
+
+  .panels { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .panel { border: 2px solid var(--ink); display: flex; flex-direction: column; min-width: 0; }
+  .panel .head { display: flex; justify-content: space-between; gap: 8px; padding: 6px 10px; border-bottom: 2px solid var(--ink); background: var(--ink); color: var(--paper); font-family: var(--pixel); font-size: 22px; }
+  .panel .head span:last-child { font-family: var(--mono); font-size: 12px; align-self: center; opacity: .8; }
+  .panel.jev .head { background: var(--pink); color: var(--ink); }
+  pre { margin: 0; padding: 10px; font-size: 12px; line-height: 1.45; overflow: auto; white-space: pre; max-height: 340px; flex: 1; background: #fafafa; }
+  .j-key { color: #8b1e3f; }
+  .j-str { color: #1f5f7a; }
+  .j-num { color: #6b3fa0; }
+  .answers { border-top: 2px solid var(--ink); }
+  /* Two lines per answer (what Jev chose, then how sure and what happens) so long action names never squeeze. */
+  .answer { padding: 6px 10px; border-bottom: 1px solid var(--grey); font-size: 12.5px; }
+  .answer:last-child { border-bottom: none; }
+  .answer .line { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+  .answer .line + .line { margin-top: 3px; }
+  .answer .run { color: var(--muted); width: 40px; flex: none; }
+  .answer .choice { font-weight: 600; overflow-wrap: anywhere; min-width: 0; }
+  .bar { height: 10px; width: 90px; flex: none; border: 1.5px solid var(--ink); position: relative; }
+  .bar i { position: absolute; inset: 0 auto 0 0; background: var(--ink); }
+  .badge { font-size: 11px; padding: 0 5px; border: 1.5px solid currentColor; white-space: nowrap; }
+
+  footer { border-top: 2px solid var(--ink); padding: 16px 0 28px; font-size: 12.5px; color: var(--muted); }
+  footer p { margin: 4px 0; max-width: 900px; }
+  .err { padding: 40px 0; }
+
+  @media (max-width: 900px) {
+    .main { grid-template-columns: 1fr; }
+    .list { position: static; }
+    .items { max-height: 260px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(2) { border-right: none; }
+    .stat:nth-child(-n + 2) { border-bottom: 2px solid var(--ink); }
+  }
+  @media (max-width: 700px) {
+    .wrap { padding: 0 16px; }
+    .panels { grid-template-columns: 1fr; }
+    .brand { font-size: 32px; }
+    .tab { font-size: 18px; padding: 6px 10px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">DECISION_LAYER<small>built with Jev + jev-state</small></div>
+      <nav class="links">
+        <a href="https://github.com/suranjaychandra/jev-decision-layer">Code</a>
+        <a href="https://github.com/suranjaychandra/jev-state">jev-state</a>
+      </nav>
+    </div>
+    <p class="replay" id="replay">Loading…</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div class="stats" id="stats"></div>
+  <div class="main">
+    <aside class="list">
+      <div class="filters" id="filters"></div>
+      <div class="items" id="items"></div>
+    </aside>
+    <section class="detail" id="detail" aria-live="polite"></section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Synthetic, seeded data and rules written for this test. Not Uplane's logic or data, and it says nothing about whether Uplane uses Jev. jev-state does the counting and date math in code, so the comparison measures that design end to end.</p>
+    <p>Unofficial community project. Not affiliated with or endorsed by TypeSafe AI or Uplane. MIT © 2026 Suranjay Kumar.</p>
+  </div>
+</footer>
+
+<script>
+// Why plain JavaScript and one file: the page must run on GitHub Pages with no build tools, and anyone
+// reading the repo should be able to follow it top to bottom.
+
+/** Escape text for HTML, so data can never be read as markup. */
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+const pct = (x) => `${(x * 100).toFixed(1)}%`;
+
+/**
+ * Pretty-print JSON with light colouring for keys, strings, and numbers.
+ * Why: the raw record is long, and colour makes it easy to see how much the jev-state version removes.
+ */
+function highlight(value) {
+  return esc(JSON.stringify(value, null, 2)).replace(
+    /(&quot;(?:[^&]|&(?!quot;))*?&quot;)(\s*:)?|(-?\b\d+(?:\.\d+)?\b)/g,
+    (m, str, colon, num) => (str ? `<span class="${colon ? "j-key" : "j-str"}">${str}</span>${colon ?? ""}` : `<span class="j-num">${num}</span>`),
+  );
+}
+
+const state = { data: null, scene: 0, filter: "all", selected: 0 };
+
+// The filters a reviewer actually wants: where each version failed, and what a person would have to check.
+const FILTERS = [
+  ["all", "All"],
+  ["raw-wrong", "Raw wrong"],
+  ["jev-wrong", "jev-state wrong"],
+  ["review", "Human review"],
+];
+
+/** The first run's answer for a variant: the one shown in the list. */
+const first = (c, variant) => c.answers[variant][0];
+/** Whether a recorded answer would go to a person instead of being executed. */
+const toReview = (a, scene) => a.confidence < scene.minConfidence;
+
+/** The cases that pass the current filter. */
+function visibleCases() {
+  const scene = state.data.scenes[state.scene];
+  return scene.cases.filter((c) => {
+    if (state.filter === "raw-wrong") return first(c, "raw").got !== c.expected;
+    if (state.filter === "jev-wrong") return first(c, "jev-state").got !== c.expected;
+    if (state.filter === "review") return toReview(first(c, "raw"), scene) || toReview(first(c, "jev-state"), scene);
+    return true;
+  });
+}
+
+function renderTabs() {
+  document.getElementById("tabs").innerHTML = state.data.scenes
+    .map((s, i) => `<button class="tab" role="tab" aria-selected="${i === state.scene}" data-scene="${i}">0${i + 1} ${esc(s.title.toUpperCase())}</button>`)
+    .join("");
+}
+
+/** The headline numbers for the active scene, straight from the saved benchmark summary. */
+function renderStats() {
+  const s = state.data.scenes[state.scene];
+  const r = s.summary.raw, j = s.summary["jev-state"];
+  const stat = (label, a, b) => `<div class="stat"><div class="label">${label}</div><div class="value">${a} → <b>${b}</b></div></div>`;
+  document.getElementById("stats").innerHTML =
+    stat("Accuracy, raw → jev-state", pct(r.accuracy), pct(j.accuracy)) +
+    stat("Wrong decisions executed", r.wrongExecuted, j.wrongExecuted) +
+    stat(`Human review (conf < ${s.minConfidence})`, pct(r.humanReviewRate), pct(j.humanReviewRate)) +
+    stat("Avg input tokens", Math.round(r.avgInputTokens), Math.round(j.avgInputTokens));
+  document.getElementById("replay").innerHTML =
+    `Replaying Jev's recorded answers from the test-set benchmark: model <b>${esc(s.run.model)}</b>, ${s.run.date}, seed ${s.run.seed}, ` +
+    `${s.cases.length} ${s.unit}, ${s.run.reruns} runs each. No API key, no new calls. Hard limits are applied in code before Jev sees the question.`;
+}
+
+function renderFilters() {
+  document.getElementById("filters").innerHTML = FILTERS
+    .map(([key, label]) => `<button class="filter" aria-pressed="${state.filter === key}" data-filter="${key}">${label}</button>`)
+    .join("");
+}
+
+/** A small ✓/✗ mark for a variant's first answer, with "?" when it would go to review. */
+function mark(c, variant, scene, letter) {
+  const a = first(c, variant);
+  const cls = a.got === c.expected ? "ok" : "no";
+  return `<span class="mark ${cls}" title="${variant}: ${esc(a.got)} (${a.confidence.toFixed(2)})">${letter} ${a.got === c.expected ? "✓" : "✗"}${toReview(a, scene) ? "?" : ""}</span>`;
+}
+
+function renderList() {
+  const scene = state.data.scenes[state.scene];
+  const cases = visibleCases();
+  state.selected = Math.min(state.selected, Math.max(0, cases.length - 1));
+  document.getElementById("items").innerHTML = cases.length
+    ? cases.map((c, i) => `
+        <button class="item" data-index="${i}" aria-current="${i === state.selected}">
+          <span class="id">${esc(c.id)}</span>
+          <span class="marks">${mark(c, "raw", scene, "R")}${mark(c, "jev-state", scene, "J")}</span>
+          <span class="exp">expected ${esc(c.expected)}</span>
+        </button>`).join("")
+    : `<div class="empty">No ${scene.unit} match this filter.</div>`;
+  renderDetail(cases[state.selected]);
+}
+
+/** One recorded answer: run number, choice, confidence bar, and whether it would execute. */
+function answerRow(a, i, c, scene) {
+  const right = a.got === c.expected;
+  const review = toReview(a, scene);
+  return `<div class="answer">
+    <div class="line"><span class="run">run ${i + 1}</span><span class="choice ${right ? "ok" : "no"}">${right ? "✓" : "✗"} ${esc(a.got)}</span></div>
+    <div class="line"><span class="run"></span><span class="bar" title="confidence ${a.confidence.toFixed(2)}"><i style="width:${(a.confidence * 100).toFixed(0)}%"></i></span>
+      <span class="badge ${review ? "rv" : right ? "ok" : "no"}">${a.confidence.toFixed(2)} · ${review ? "HUMAN REVIEW" : "EXECUTED"}</span></div>
+  </div>`;
+}
+
+/** Everything about one case: what was blocked and why, both states, and every recorded answer. */
+function renderDetail(c) {
+  const el = document.getElementById("detail");
+  if (!c) { el.innerHTML = ""; return; }
+  const scene = state.data.scenes[state.scene];
+  const panel = (cls, title, value, variant) => `
+    <div class="panel ${cls}">
+      <div class="head"><span>${title}</span><span>${JSON.stringify(value).length.toLocaleString("en-US")} chars</span></div>
+      <pre>${highlight(value)}</pre>
+      <div class="answers">${c.answers[variant].map((a, i) => answerRow(a, i, c, scene)).join("")}</div>
+    </div>`;
+  el.innerHTML = `
+    <h2>${esc(c.id)}<span class="expected">expected: ${esc(c.expected)}</span></h2>
+    <p class="sum">${esc(c.summary)}</p>
+    <div class="row"><span class="k">Options Jev saw</span>${c.options.map((o) => `<span class="chip">${esc(o)}</span>`).join("")}</div>
+    ${c.blocked.length
+      ? `<div class="lock"><b>BLOCKED BY CODE</b>${c.blocked.map((b) => `<div class="row"><span class="chip blocked">${esc(b.action)}</span><span class="why">${esc(b.reason)}</span></div>`).join("")}</div>`
+      : `<div class="lock"><b>BLOCKED BY CODE</b><div class="why">Nothing blocked for this ${scene.unit.slice(0, -1)}.</div></div>`}
+    <div class="panels">
+      ${panel("raw", "RAW_STATE.json", c.raw, "raw")}
+      ${panel("jev", "JEV_STATE.json", c.jev, "jev-state")}
+    </div>`;
+}
+
+function render() {
+  renderTabs();
+  renderStats();
+  renderFilters();
+  renderList();
+}
+
+// One click handler for the whole page, so re-rendered buttons keep working.
+document.addEventListener("click", (e) => {
+  const t = e.target.closest("button");
+  if (!t) return;
+  if (t.dataset.scene !== undefined) { state.scene = Number(t.dataset.scene); state.selected = 0; state.filter = "all"; render(); }
+  else if (t.dataset.filter) { state.filter = t.dataset.filter; state.selected = 0; renderFilters(); renderList(); }
+  else if (t.dataset.index !== undefined) { state.selected = Number(t.dataset.index); renderList(); }
+});
+
+// Arrow keys (or j/k) move through the list, which makes the page easy to walk through in a demo video.
+document.addEventListener("keydown", (e) => {
+  if (!state.data) return;
+  const step = { ArrowDown: 1, j: 1, ArrowUp: -1, k: -1 }[e.key];
+  if (!step) return;
+  e.preventDefault();
+  const n = visibleCases().length;
+  state.selected = (state.selected + step + n) % n;
+  renderList();
+  document.querySelector('.item[aria-current="true"]')?.scrollIntoView({ block: "nearest" });
+});
+
+fetch("data.json")
+  .then((r) => { if (!r.ok) throw new Error(`data.json: ${r.status}`); return r.json(); })
+  .then((data) => { state.data = data; render(); })
+  .catch((err) => {
+    document.getElementById("replay").textContent = "Could not load data.json.";
+    document.getElementById("detail").innerHTML = `<p class="err">Run <code>npm run dashboard:build</code> first. (${esc(err.message)})</p>`;
+  });
+</script>
+</body>
+</html>

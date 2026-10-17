@@ -111,6 +111,22 @@ export function allowedActions(ad: RawAd): Action[] {
 }
 
 /**
+ * Which actions the hard limits removed for this ad, and why, in words a person can read.
+ * Why: a decision layer has to explain itself. The dashboard shows these reasons next to every
+ * decision, so a reviewer can see a capped budget or a protected test was never up for debate.
+ */
+export function blockedActions(ad: RawAd): { action: Action; reason: string }[] {
+  const s = signals(ad);
+  const blocked: { action: Action; reason: string }[] = [];
+  if (ad.dailyBudget >= ad.maxDailyBudget) blocked.push({ action: "scale", reason: `daily budget already at its $${ad.maxDailyBudget} cap` });
+  if (ad.bucket === "explore" && s.impressions < PLANNED_EXPLORE_IMPRESSIONS) {
+    const reason = `protected explore ad: ${s.impressions.toLocaleString("en-US")} of ${PLANNED_EXPLORE_IMPRESSIONS.toLocaleString("en-US")} planned impressions`;
+    blocked.push({ action: "pause", reason }, { action: "retire", reason });
+  }
+  return blocked;
+}
+
+/**
  * The rules Jev is given. The raw and jev-state versions get the exact same text.
  * Why named definitions from the start: Scene 1's dev set showed Jev often half-matches a rule
  * with two conditions joined by "and"/"or", and follows single named facts well.

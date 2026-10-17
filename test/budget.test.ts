@@ -6,7 +6,7 @@
  */
 import { describe, expect, it } from "vitest";
 import { dailyRows, exampleAds, makeCases } from "../src/budget/ads.js";
-import { ACTIONS, PLANNED_EXPLORE_IMPRESSIONS, type RawAd, allowedActions, policy, signals } from "../src/budget/steering.js";
+import { ACTIONS, PLANNED_EXPLORE_IMPRESSIONS, type RawAd, allowedActions, blockedActions, policy, signals } from "../src/budget/steering.js";
 import { actionQuestion, jevState } from "../src/budget/state.js";
 
 const examples = exampleAds();
@@ -57,6 +57,14 @@ describe("hard limits", () => {
     });
     expect(allowedActions(explore(PLANNED_EXPLORE_IMPRESSIONS / 5 - 1))).toEqual(["scale", "hold"]);
     expect(allowedActions(explore(PLANNED_EXPLORE_IMPRESSIONS / 5))).toEqual(["scale", "hold", "pause", "retire"]);
+  });
+
+  it("say why each action was removed", () => {
+    expect(blockedActions(examples.find((e) => e.name.startsWith("E"))!.ad)).toEqual([{ action: "scale", reason: "daily budget already at its $500 cap" }]);
+    expect(blockedActions(examples.find((e) => e.name.startsWith("F"))!.ad).map((b) => b.reason)).toEqual([
+      "protected explore ad: 3,000 of 5,000 planned impressions",
+      "protected explore ad: 3,000 of 5,000 planned impressions",
+    ]);
   });
 
   it("only offer Jev the allowed actions", () => {
@@ -120,6 +128,13 @@ describe("generated ads", () => {
   it("include hard-limit cases, so the limits are exercised", () => {
     expect(cases.some((c) => !allowedActions(c.raw).includes("scale"))).toBe(true);
     expect(cases.some((c) => !allowedActions(c.raw).includes("pause"))).toBe(true);
+  });
+
+  it("explain every removed action: allowed and blocked together cover each action once", () => {
+    for (const { raw } of cases) {
+      const all = [...allowedActions(raw), ...blockedActions(raw).map((b) => b.action)].sort();
+      expect(all).toEqual(Object.keys(ACTIONS).sort());
+    }
   });
 
   it("are not changed by projection", () => {

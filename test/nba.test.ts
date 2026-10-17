@@ -6,7 +6,7 @@
  */
 import { describe, expect, it } from "vitest";
 import { NOW, blogExample, makeCases } from "../src/nba/customers.js";
-import { ACTIONS, type Action, DAY, type RawCustomer, TARIFF_PAGE, allowedActions, policy, signals } from "../src/nba/journey.js";
+import { ACTIONS, type Action, DAY, type RawCustomer, TARIFF_PAGE, allowedActions, blockedActions, policy, signals } from "../src/nba/journey.js";
 import { actionQuestion, jevState } from "../src/nba/state.js";
 
 /** The blog example with one change applied, so each test shows exactly what it varies. */
@@ -53,6 +53,13 @@ describe("hard limits", () => {
   it("removes SMS and paid social without consent, but always allows service and waiting", () => {
     const c = customer((c) => (c.consent = { email: false, sms: false, ads: false }));
     expect(allowedActions(c)).toEqual(["service_handoff", "wait"]);
+  });
+
+  it("says why each action was removed", () => {
+    expect(blockedActions(blogExample())).toEqual([
+      { action: "email_upgrade_offer", reason: "2 of 2 emails already used this week" },
+      { action: "sms_reminder", reason: "no SMS consent" },
+    ]);
   });
 
   it("only offers Jev the allowed actions", () => {
@@ -115,6 +122,13 @@ describe("generated customers", () => {
     const keys = Object.keys(jevState(cases[0]!.raw));
     for (const raw of ["customerId", "now", "events", "sendLog", "tickets", "device", "utm", "internal", "consent"]) {
       expect(keys).not.toContain(raw);
+    }
+  });
+
+  it("explain every removed action: allowed and blocked together cover each action once", () => {
+    for (const { raw } of cases) {
+      const all = [...allowedActions(raw), ...blockedActions(raw).map((b) => b.action)].sort();
+      expect(all).toEqual(Object.keys(ACTIONS).sort());
     }
   });
 

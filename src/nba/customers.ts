@@ -161,10 +161,12 @@ export function makeCases(perAction = 12, seed = 42): Case[] {
 /** A one-line human summary of a case, so logs are readable without opening the raw JSON. */
 export function summary(c: RawCustomer): string {
   const s = signals(c);
+  // "1 email", "2 emails": correct plurals, since the dashboard shows these lines to people.
+  const n = (count: number, word: string) => `${count} ${word}${count === 1 ? "" : "s"}`;
   const parts = [
-    `${s.tariffVisits} tariff visits`,
+    n(s.tariffVisits, "tariff visit"),
     `renews in ${s.daysToRenewal.toFixed(1)} days`,
-    `${s.emailsThisWeek} emails this week`,
+    `${n(s.emailsThisWeek, "email")} this week`,
     `last offer ${s.lastOffer}`,
   ];
   if (s.openTicket) parts.push("ticket open");

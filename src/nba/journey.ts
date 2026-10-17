@@ -105,6 +105,23 @@ export function allowedActions(c: RawCustomer): Action[] {
 }
 
 /**
+ * Which actions the hard limits removed for this customer, and why, in words a person can read.
+ * Why: a decision layer has to explain itself. The dashboard shows these reasons next to every
+ * decision, so a reviewer can see the system never even offered a blocked channel.
+ */
+export function blockedActions(c: RawCustomer): { action: Action; reason: string }[] {
+  const s = signals(c);
+  const blocked: { action: Action; reason: string }[] = [];
+  if (!c.consent.email) blocked.push({ action: "email_upgrade_offer", reason: "no email consent" });
+  else if (s.emailsThisWeek >= WEEKLY_EMAIL_CAP) {
+    blocked.push({ action: "email_upgrade_offer", reason: `${s.emailsThisWeek} of ${WEEKLY_EMAIL_CAP} emails already used this week` });
+  }
+  if (!c.consent.sms) blocked.push({ action: "sms_reminder", reason: "no SMS consent" });
+  if (!c.consent.ads) blocked.push({ action: "social_coverage_proof", reason: "no ads consent" });
+  return blocked;
+}
+
+/**
  * The rules Jev is given, in plain words. The raw and jev-state versions get the exact same
  * text, so any difference in their answers comes from the state format alone.
  * Why "apply the FIRST rule that matches": an ordered list gives exactly one correct answer per

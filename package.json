@@ -16,7 +16,10 @@
     "typecheck": "tsc --noEmit",
     "nba": "node --env-file-if-exists=.env --import tsx src/nba/run.ts",
     "nba:bench": "node --env-file-if-exists=.env --import tsx src/nba/bench.ts",
-    "budget:bench": "node --env-file-if-exists=.env --import tsx src/budget/bench.ts"
+    "budget:bench": "node --env-file-if-exists=.env --import tsx src/budget/bench.ts",
+    "nba:example": "node --env-file-if-exists=.env --import tsx src/nba/example.ts",
+    "dashboard:build": "node --import tsx src/dashboard/build.ts",
+    "dashboard": "npm run dashboard:build && node --import tsx src/dashboard/serve.ts"
   },
   "engines": {
     "node": ">=22"
