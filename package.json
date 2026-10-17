@@ -10,7 +10,8 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "nba": "node --env-file-if-exists=.env --import tsx src/nba/run.ts",
-    "nba:bench": "node --env-file-if-exists=.env --import tsx src/nba/bench.ts"
+    "nba:bench": "node --env-file-if-exists=.env --import tsx src/nba/bench.ts",
+    "budget:bench": "node --env-file-if-exists=.env --import tsx src/budget/bench.ts"
   },
   "engines": {
     "node": ">=22"
