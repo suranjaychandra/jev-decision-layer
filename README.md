@@ -4,7 +4,7 @@ A marketing decision layer built with [Jev](https://typesafe.ai), TypeSafe AI's 
 
 [![CI](https://github.com/suranjaychandra/jev-decision-layer/actions/workflows/ci.yml/badge.svg)](https://github.com/suranjaychandra/jev-decision-layer/actions/workflows/ci.yml)
 
-> Work in progress. Both scenes are built and measured; a dashboard comes next.
+**[Open the dashboard](https://suranjaychandra.github.io/jev-decision-layer/)**: every test-set case side by side, raw vs jev-state, with the options Jev saw, what the hard limits blocked and why, and Jev's recorded answers. It replays saved answers, so no API key is needed.
 
 | Scene | Accuracy, raw → jev-state | Wrong decisions executed automatically | Input tokens |
 |---|---|---|---|
@@ -106,6 +106,14 @@ Full tables: [`results/budget.md`](results/budget.md). Every call: [`results/bud
 **What the raw version gets wrong.** 24 of its 60 wrong answers gave more money to an ad that shouldn't get it (`scale` instead of hold, pause, or retire), and 10 paused an ad that should have been scaled. Spotting fatigue was the hardest: only 22% of `retire` cases were right, because it means comparing click rates across the first and last three daily rows. Raw answers also averaged 0.37 confidence, so 85% would go to a person: the automation would barely run.
 
 **Why jev-state reaches 100% here.** Its three facts are exactly the rules' definitions, so what is left for Jev is applying an ordered list to three labels. That is the point of the design, not a sign the task is hard: the arithmetic moves into tested code, and the model does the choosing. The dev set (seed 7) needed no changes, so the test set (seed 42) ran on the design as first written.
+
+## Dashboard
+
+[`docs/index.html`](docs/index.html) is a static page that replays the test-set benchmarks. For each customer or ad it shows the raw record and the jev-state version, the options Jev saw, which actions the hard limits removed and why, and every recorded answer with its confidence, marked **executed** or **sent to human review**. It opens on the example from Uplane's post, recorded separately (3 runs each; not part of the benchmark numbers).
+
+```sh
+npm run dashboard             # builds docs/data.json and serves http://localhost:3002
+```
 
 ## Run it
 
