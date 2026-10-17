@@ -64,7 +64,7 @@ With a [TypeSafe](https://typesafe.ai) API key:
 ```sh
 cp .env.example .env          # paste your TYPESAFE_API_KEY and save
 npm run nba -- --limit 5      # 5 customers × 2 versions = 10 Jev calls
-npm run nba:bench -- --seed 42 --per-action 12 --reruns 3   # the test set: 360 calls, about $0.02
+npm run nba:bench -- --seed 42 --reruns 3   # the test set: 360 calls, about $0.02
 ```
 
 ## Limitations
