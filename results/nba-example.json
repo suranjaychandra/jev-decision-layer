@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-17",
+  "model": "jev-1.13.0",
+  "id": "cus_blog_0914",
+  "expected": "social_coverage_proof",
+  "runs": [
+    {
+      "variant": "raw",
+      "run": 0,
+      "got": "social_coverage_proof",
+      "confidence": 0.88,
+      "inputTokens": 1375
+    },
+    {
+      "variant": "jev-state",
+      "run": 0,
+      "got": "social_coverage_proof",
+      "confidence": 0.98,
+      "inputTokens": 694
+    },
+    {
+      "variant": "raw",
+      "run": 1,
+      "got": "social_coverage_proof",
+      "confidence": 0.89,
+      "inputTokens": 1375
+    },
+    {
+      "variant": "jev-state",
+      "run": 1,
+      "got": "social_coverage_proof",
+      "confidence": 0.98,
+      "inputTokens": 694
+    },
+    {
+      "variant": "raw",
+      "run": 2,
+      "got": "social_coverage_proof",
+      "confidence": 0.89,
+      "inputTokens": 1375
+    },
+    {
+      "variant": "jev-state",
+      "run": 2,
+      "got": "social_coverage_proof",
+      "confidence": 0.98,
+      "inputTokens": 694
+    }
+  ]
+}
