@@ -5,6 +5,11 @@
   "description": "A marketing decision layer built with Jev and jev-state: next best action and budget steering, with a raw vs jev-state benchmark.",
   "license": "MIT",
   "author": "Suranjay Kumar",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suranjaychandra/jev-decision-layer.git"
+  },
+  "homepage": "https://github.com/suranjaychandra/jev-decision-layer#readme",
   "type": "module",
   "scripts": {
     "test": "vitest run",

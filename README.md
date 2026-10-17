@@ -2,6 +2,8 @@
 
 A marketing decision layer built with [Jev](https://typesafe.ai), TypeSafe AI's decision model, and [jev-state](https://github.com/suranjaychandra/jev-state). It follows the four jobs described in Uplane's post [Beyond the Campaign: Building a Decision Layer for Customer Engagement](https://uplane.com/blogs/continuous-engagement-segments-of-one/): notice, remember, **choose one action or none**, and learn.
 
+[![CI](https://github.com/suranjaychandra/jev-decision-layer/actions/workflows/ci.yml/badge.svg)](https://github.com/suranjaychandra/jev-decision-layer/actions/workflows/ci.yml)
+
 > Work in progress. Both scenes are built and measured; a dashboard comes next.
 
 | Scene | Accuracy, raw → jev-state | Wrong decisions executed automatically | Input tokens |

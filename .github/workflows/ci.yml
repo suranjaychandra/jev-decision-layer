@@ -1,0 +1,33 @@
+# Typecheck and test on every push and pull request.
+# Why no API key here: the tests never call Jev, so CI proves the policies, hard limits, and
+# jev-state labels are right without spending money or exposing a secret.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Node ${{ matrix.node }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [22, 24, 26]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      # The dry runs build every state and question without calling Jev, so they catch runtime errors too.
+      - run: npm run nba -- --dry
+      - run: npm run budget:bench -- --dry
